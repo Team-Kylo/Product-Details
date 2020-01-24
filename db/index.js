@@ -6,10 +6,23 @@ mongoose.connection.on('error', err => {
   console.log(err);
 });
 
+// let productSchema = mongoose.Schema({
+//   id: Number,
+//   sellerName: String,
+//   itemDescription: String,
+//   itemPrice: Number,
+//   itemSpecs: String,
+//   shippingTime: String,
+//   shippingLoc: String
+
+// })
+
+// let Product = mongoose.model('Product', productSchema);
 const Product = require('./Product.js');
 
 let save = (product) => {
-  let doc = new Product({
+  console.log('prrroodduct', Product);
+  let doc = new Product.Product({
     id: product.id,
     sellerName: product.seller,
     itemDescription: product.desc,
