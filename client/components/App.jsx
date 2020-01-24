@@ -26,6 +26,8 @@ class App extends React.Component {
 
   render() {
     var first5 = this.state.data.slice(0, 5);
+    // var firstDoc = this.state.data[0];
+    console.log(this.state.data);
     return (
       <div>
         {first5.map((doc) => <Item key={doc.id} sellerName={doc.sellerName} itemDesc={doc.itemDescription} itemPrice={doc.itemPrice} />)}
