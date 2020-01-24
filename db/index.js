@@ -28,5 +28,17 @@ let save = (product) => {
   });
 }
 
+let fetchDocs = (callback) => {
+  Product.Product.find()
+    .then((data) => {
+      callback(null, data);
+    })
+    .catch((err) => {
+      callback(err, null);
+    })
+}
+
+
 module.exports.save = save;
+module.exports.fetchDocs = fetchDocs;
 

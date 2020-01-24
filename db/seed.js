@@ -5,12 +5,12 @@ var seed = function() {
   for (var i = 0; i < 100; i++) {
     var testProd = {
       "id": i,
-      "seller": faker.name.findName(),
-      "desc": "mint condition item",
-      "price": 12,
-      "specs": "handmade",
-      "shipping": "3-5 days",
-      "loc": "Detroit"
+      "seller": faker.internet.userName(),
+      "desc": faker.lorem.sentences(),
+      "price": faker.commerce.price(),
+      "specs": faker.lorem.sentences(),
+      "shipping": "Standard: 3-5 Business Days",
+      "loc": faker.address.city()
     }
     db.save(testProd);
   }

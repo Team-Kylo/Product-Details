@@ -17,6 +17,14 @@ app.post('/items', (req, res) => {
 
 app.get('/items', (req, res) => {
 
+  db.fetchDocs((err, data) => {
+    if (err) {
+      res.status(400).json(err);
+      return;
+    }
+    res.status(200).json(data);
+  })
+
 
 });
 
