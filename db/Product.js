@@ -9,7 +9,7 @@ let productSchema = mongoose.Schema({
   shippingTime: String,
   shippingLoc: String
 
-})
+}, {collection: 'data'});
 
 // let Product = mongoose.model('Product', productSchema);
 

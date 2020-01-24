@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.use(express.static('./public'));
 
-app.post('/product', (req, res) => {
+app.post('/item', (req, res) => {
 
   db.save(req.body);
 
