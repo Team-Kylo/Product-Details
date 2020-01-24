@@ -7,13 +7,18 @@ app.use(express.json());
 
 app.use(express.static('./public'));
 
-app.post('/item', (req, res) => {
+app.post('/items', (req, res) => {
 
   db.save(req.body);
 
   res.status(200).send('success');
 
 })
+
+app.get('/items', (req, res) => {
+
+
+});
 
 
 app.listen(port, () => {
