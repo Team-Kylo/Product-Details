@@ -6,6 +6,8 @@ app.use(express.json());
 
 app.use(express.static('./public'));
 
+app.get('/')
+
 
 app.listen(port, () => {
   console.log('app listening on port 3000');
