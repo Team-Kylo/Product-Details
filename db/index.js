@@ -33,7 +33,11 @@ let save = (product) => {
   })
 
   doc.save((err) => {
-    if (err) console.log('error');
+    if (err) {
+      console.log('error saving to db');
+      return;
+    }
+    console.log('successful save to db');
   });
 }
 
