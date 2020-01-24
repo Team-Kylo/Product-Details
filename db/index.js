@@ -1,19 +1,28 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/product');
+mongoose.connect('mongodb://localhost/products', { useUnifiedTopology: true, useNewUrlParser: true }).
+  catch((error) => console.log(error));
 
-let productSchema = mongoose.Schema({
-  id: Number,
-  sellerName: String,
-  itemDescription: String,
-  itemPrice: Number,
-  itemSpecs: String,
-  shippingTime: String,
-  shippingLoc: String
+mongoose.connection.on('error', err => {
+  console.log(err);
+});
 
-})
+const Product = require('./Product.js');
 
+let save = (product) => {
+  let doc = new Product({
+    id: product.id,
+    sellerName: product.seller,
+    itemDescription: product.desc,
+    itemPrice: product.price,
+    itemSpecs: product.specs,
+    shippingTime: product.shipping,
+    loc: product.loc
+  })
 
-let Product = mongoose.model('Product', productSchema);
+  doc.save((err) => {
+    if (err) console.log('error');
+  });
+}
 
-module.exports.Product = Product;
+module.exports.save = save;
 
