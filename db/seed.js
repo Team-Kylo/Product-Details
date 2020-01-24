@@ -6,7 +6,7 @@ var seed = function() {
     var testProd = {
       "id": i,
       "seller": faker.internet.userName(),
-      "desc": faker.lorem.sentences(),
+      "desc": faker.lorem.sentence(),
       "price": faker.commerce.price(),
       "specs": faker.lorem.sentences(),
       "shipping": "Standard: 3-5 Business Days",

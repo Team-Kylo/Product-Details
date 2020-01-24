@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Item from './Item.jsx';
 
 
 class App extends React.Component {
@@ -24,10 +25,10 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.data);
+    var first5 = this.state.data.slice(0, 5);
     return (
       <div>
-        {this.state.data.map((doc) => <div>{doc.sellerName}</div>)}
+        {first5.map((doc) => <Item key={doc.id} sellerName={doc.sellerName} itemDesc={doc.itemDescription} itemPrice={doc.itemPrice} />)}
       </div>
     )
   }
