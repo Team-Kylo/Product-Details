@@ -7,13 +7,16 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      data: []
+      data: {}
     }
   }
 
   componentDidMount() {
-    axios.get('/items')
+const queryString = window.location.search;
+var id = queryString.slice(1);
+    axios.get(`/${id}`)
       .then((data) => {
+        console.log(data);
         this.setState({
           data: data.data
         })
@@ -25,12 +28,11 @@ class App extends React.Component {
   }
 
   render() {
-    var first5 = this.state.data.slice(0, 5);
-    // var firstDoc = this.state.data[0];
-    console.log(this.state.data);
+    console.log('state', this.state.data);
+    var doc = this.state.data;
     return (
       <div>
-        {first5.map((doc) => <Item key={doc.id} sellerName={doc.sellerName} itemDesc={doc.itemDescription} itemPrice={doc.itemPrice} />)}
+        <Item sellerName={doc.sellerName} itemDesc={doc.itemDescription} itemPrice={doc.itemPrice} />
       </div>
     )
   }
