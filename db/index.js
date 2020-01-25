@@ -6,10 +6,10 @@ mongoose.connection.on('error', err => {
   console.log(err);
 });
 
-const Product = require('./Product.js');
+const Model = require('./Product.js');
 
 let save = (product) => {
-  let doc = new Product.Product({
+  let doc = new Model.Product({
     id: product.id,
     sellerName: product.seller,
     itemDescription: product.desc,
@@ -29,7 +29,7 @@ let save = (product) => {
 }
 
 let fetchDocs = (callback) => {
-  Product.Product.find()
+  Model.Product.find()
     .then((data) => {
       callback(null, data);
     })
