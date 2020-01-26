@@ -10,10 +10,17 @@ class App extends React.Component {
       data: {}
     }
   }
+  componentDidMount() {
+
+    axios.get('/')
+      .then((data) => {
+        console.log(data.data);
+      });
+  }
 
   componentDidMount() {
-const queryString = window.location.search;
-var id = queryString.slice(1);
+  const queryString = window.location.search;
+  var id = queryString.slice(1);
     axios.get(`/${id}`)
       .then((data) => {
         console.log(data);

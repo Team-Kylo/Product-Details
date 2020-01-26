@@ -6,8 +6,21 @@ let db = require('../db');
 app.use(express.json());
 app.use(express.static('./public'));
 
+app.get('/', (req, res) => {
+  console.log('/ req');
+  db.fetchDocs((err, data) => {
+    if (err) {
+      console.log('error fetching docs from / endpoint');
+      return;
+    }
+    res.status(200).json(data);
+  });
+});
+
 
 app.get('/:id', (req, res) => {
+
+  console.log('id req');
 
   db.fetchDocs((err, data) => {
     if (err) {
@@ -19,14 +32,12 @@ app.get('/:id', (req, res) => {
 
     for (var el of data) {
       if (parseInt(el.id) === parseInt(targetId)) {
-        console.log('trrruueee');
         targetData = el;
         break;
       }
     }
     res.status(200).json(targetData);
   })
-
 
 });
 
