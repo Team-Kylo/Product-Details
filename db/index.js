@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/products', { useUnifiedTopology: true, useNewUrlParser: true }).
   catch((error) => console.log(error));
-
-mongoose.connection.on('error', err => {
-  console.log(err);
-});
+  var db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function() {
+    console.log('db connected');
+  });
 
 const Model = require('./Product.js');
 
