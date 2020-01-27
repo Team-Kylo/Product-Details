@@ -1,7 +1,7 @@
 import React from 'react';
-import {shallow} from '../../enzyme';
+import { shallow } from '../../enzyme';
 
-import Item from '../components/Item.jsx';
+import Item from '../components/Item';
 
 describe('Item component tests', () => {
   it('component renders', () => {

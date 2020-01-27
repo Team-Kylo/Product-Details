@@ -17,16 +17,14 @@ app.get('/:id', (req, res) => {
     var targetId = req.params.id;
     var targetData;
 
-    for (var el of data) {
+    for (let el of data) {
       if (parseInt(el.id) === parseInt(targetId)) {
         targetData = el;
         break;
       }
     }
     res.status(200).json(targetData);
-  })
-
+  });
 });
-
 
 module.exports = app;
