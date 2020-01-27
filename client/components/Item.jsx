@@ -1,6 +1,7 @@
 import React from 'react';
 import AddToCart from './AddToCart.jsx';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 
 const StyledText = styled.div`
@@ -23,6 +24,12 @@ var Item = ({sellerName, itemDesc, itemPrice}) => {
     </div>
   );
 
+}
+
+Item.propTypes = {
+  sellerName: PropTypes.string,
+  itemDesc: PropTypes.string,
+  itemPrice: PropTypes.number
 }
 
 export default Item;
