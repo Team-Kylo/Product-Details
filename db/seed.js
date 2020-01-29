@@ -1,21 +1,14 @@
-var faker = require('faker');
-var db = require('./index.js');
 
-var seed = function() {
-  for (var i = 0; i < 100; i++) {
-    var testProd = {
-      "id": i,
-      "seller": faker.internet.userName(),
-      "desc": faker.lorem.sentence(),
-      "price": faker.commerce.price(),
-      "specs": faker.lorem.sentences(),
-      "shipping": "Standard: 3-5 Business Days",
-      "loc": faker.address.city()
-    }
-    db.save(testProd);
+const db = require('./index.js');
+const generate = require('./generateData.js');
+
+const data = generate();
+
+const seed = () => {
+  for (let i = 0; i < data.length; i += 1) {
+    const doc = data[i];
+    db.save(doc);
   }
-}
+};
 
 seed();
-
-
