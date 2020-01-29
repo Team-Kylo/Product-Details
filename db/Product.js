@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-let productSchema = mongoose.Schema({
+const productSchema = mongoose.Schema({
   id: Number,
   sellerName: String,
   itemDescription: String,
   itemPrice: Number,
   itemSpecs: String,
   shippingTime: String,
-  shippingLoc: String
+  shippingLoc: String,
 
-}, {collection: 'data'});
+}, { collection: 'data' });
 
 // let Product = mongoose.model('Product', productSchema);
 
