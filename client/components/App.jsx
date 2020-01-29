@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Item from './Item';
+import Details from './Details';
 
 
 class App extends React.Component {
@@ -12,26 +13,41 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const queryString = window.location.search;
-    const id = queryString.slice(1);
+    // const queryString = window.location.search;
+    // const id = queryString.slice(1);
+    const id = 1;
     axios.get(`/${id}`)
       .then((data) => {
-        console.log(data);
         this.setState({
           data: data.data,
         });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
   render() {
-    console.log('state', this.state.data);
-    const doc = this.state.data;
+    const { data } = this.state;
+    const doc = data;
     return (
       <div>
-        <Item sellerName={doc.sellerName} itemDesc={doc.itemDescription} itemPrice={doc.itemPrice} />
+        <div>
+          <Item
+            className="item"
+            sellerName={doc.sellerName}
+            itemDesc={doc.itemDescription}
+            itemPrice={doc.itemPrice}
+          />
+        </div>
+        <div>
+          <p>---------------------------------</p>
+        </div>
+        <div>
+          <Details
+            className="details"
+          />
+        </div>
       </div>
     );
   }

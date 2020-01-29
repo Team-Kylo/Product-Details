@@ -1,24 +1,26 @@
+
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/products', { useUnifiedTopology: true, useNewUrlParser: true }).
-  catch((error) => console.log(error));
-  var db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', function() {
-    console.log('db connected');
-  });
+
+mongoose.connect('mongodb://localhost/products', { useUnifiedTopology: true, useNewUrlParser: true })
+  .catch((error) => console.log(error));
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('db connected');
+});
 
 const Model = require('./Product.js');
 
-let save = (product) => {
-  let doc = new Model.Product({
+const save = (product) => {
+  const doc = new Model.Product({
     id: product.id,
     sellerName: product.seller,
     itemDescription: product.desc,
     itemPrice: product.price,
     itemSpecs: product.specs,
     shippingTime: product.shipping,
-    loc: product.loc
-  })
+    loc: product.loc,
+  });
 
   doc.save((err) => {
     if (err) {
@@ -27,19 +29,17 @@ let save = (product) => {
     }
     console.log('successful save to db');
   });
-}
+};
 
-let fetchDocs = (callback) => {
+const fetchDocs = (callback) => {
   Model.Product.find()
     .then((data) => {
       callback(null, data);
     })
     .catch((err) => {
       callback(err, null);
-    })
-}
-
+    });
+};
 
 module.exports.save = save;
 module.exports.fetchDocs = fetchDocs;
-

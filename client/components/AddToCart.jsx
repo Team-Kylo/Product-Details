@@ -15,8 +15,8 @@ const DropDown = styled.select`
 `;
 
 
-var AddToCart = () => {
-  return(
+const AddToCart = () => {
+  return (
     <div>
       <div>Quantity</div>
       <DropDown>
@@ -28,14 +28,14 @@ var AddToCart = () => {
 
       </DropDown>
       <div>
-      {/* <button>Add to cart</button> */}
-      <Button>Add to cart</Button>
+        {/* <button>Add to cart</button> */}
+        <Button>Add to cart</Button>
       </div>
       <div>Don't miss out. There's only 4 available and 4 other people have this in their cart right now.</div>
     </div>
 
-  )
-}
+  );
+};
 
 
 export default AddToCart;

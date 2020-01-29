@@ -14,8 +14,8 @@ app.get('/:id', (req, res) => {
       res.status(400).json(err);
       return;
     }
-    var targetId = req.params.id;
-    var targetData;
+    const targetId = req.params.id;
+    let targetData;
 
     for (let el of data) {
       if (parseInt(el.id) === parseInt(targetId)) {
