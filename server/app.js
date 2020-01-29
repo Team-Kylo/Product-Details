@@ -1,6 +1,7 @@
 const express = require('express');
-let app = express();
-let db = require('../db');
+
+const app = express();
+const db = require('../db');
 
 
 app.use(express.json());
@@ -8,7 +9,6 @@ app.use(express.static('./public'));
 
 
 app.get('/:id', (req, res) => {
-
   db.fetchDocs((err, data) => {
     if (err) {
       res.status(400).json(err);
@@ -17,9 +17,10 @@ app.get('/:id', (req, res) => {
     const targetId = req.params.id;
     let targetData;
 
-    for (let el of data) {
-      if (parseInt(el.id) === parseInt(targetId)) {
-        targetData = el;
+    for (let i = 0; i < data.length; i += 1) {
+      // eslint-disable-next-line radix
+      if (parseInt(data[i].id) === parseInt(targetId)) {
+        targetData = data[i];
         break;
       }
     }
