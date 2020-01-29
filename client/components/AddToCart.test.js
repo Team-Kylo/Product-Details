@@ -1,3 +1,7 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-undef */
 import React from 'react';
 import styled from 'styled-components';
 import { shallow } from '../../enzyme';
@@ -15,23 +19,26 @@ describe('<AddToCart > component test', () => {
   color: white;s
 `;
 
-const DropDown = styled.select`
+    const DropDown = styled.select`
   width: 50%;
   option {
     text-align: center;
   }
 `;
-const wrapper = shallow(<AddToCart />);
-expect(wrapper.find(<DropDown>
-
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-
-</DropDown>)).toBeTruthy();
-expect(wrapper.find(<Button>Add to cart</Button>)).toBeTruthy();
-expect(wrapper.find(<div>Don't miss out. There's only 4 available and 4 other people have this in their cart right now.</div>)).toBeTruthy();
-
+    const wrapper = shallow(<AddToCart />);
+    expect(wrapper.find(
+      <DropDown>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </DropDown>,
+    )).toBeTruthy();
+    expect(wrapper.find(<Button>Add to cart</Button>)).toBeTruthy();
+    expect(wrapper.find(
+      <div>
+      Don't miss out. There's only 4 available and 4 other people have this in their cart right now.
+      </div>
+    )).toBeTruthy();
   });
 });

@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable no-undef */
 import React from 'react';
-import styled from 'styled-components';
 import { shallow } from '../../enzyme';
 import Details from './Details';
 //
