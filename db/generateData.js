@@ -6,12 +6,12 @@ const generate = () => {
   for (let i = 0; i < 100; i += 1) {
     const doc = {
       id: i,
-      seller: faker.internet.userName(),
-      desc: faker.lorem.sentence(),
-      price: faker.commerce.price(),
-      specs: faker.lorem.sentences(),
-      shipping: 'Standard: 3-5 Business Days',
-      loc: faker.address.city(),
+      sellerName: faker.internet.userName(),
+      itemDescription: faker.lorem.sentence(),
+      itemPrice: faker.commerce.price(),
+      itemSpecs: faker.lorem.sentences(),
+      shippingTime: 'Standard: 3-5 Business Days',
+      shippingLoc: faker.address.city(),
     };
     fakeData.push(doc);
   }
