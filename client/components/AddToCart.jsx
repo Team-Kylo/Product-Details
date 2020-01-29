@@ -14,7 +14,6 @@ const DropDown = styled.select`
   }
 `;
 
-
 const AddToCart = () => {
   return (
     <div>
