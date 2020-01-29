@@ -4,7 +4,7 @@ import { shallow } from '../../enzyme';
 import App from './App';
 import Details from './Details';
 import Item from './Item';
-//
+
 describe('App test', () => {
   it('should render', () => {
     const wrapper = shallow(<App />);

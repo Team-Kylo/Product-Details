@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { shallow } from '../../enzyme';
 import Details from './Details';
-//
+
 describe('<Details> test', () => {
   it('should render', () => {
     const wrapper = shallow(<Details />);
