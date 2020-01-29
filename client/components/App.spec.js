@@ -17,4 +17,11 @@ describe('App test', () => {
     expect(wrapper.find(Details)).toBeDefined();
     expect(wrapper.find(Item)).toBeDefined();
   });
+  it('should check componentDidMount()', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+    jest.spyOn(instance, 'getDbData');
+    instance.componentDidMount();
+    expect(instance.getDbData).toHaveBeenCalledTimes(1);
+  });
 });

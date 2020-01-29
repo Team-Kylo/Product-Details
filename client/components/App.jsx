@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
 import Item from './Item';
@@ -13,17 +14,20 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // const queryString = window.location.search;
+    this.getDbData((dbData) => {
+      this.setState({
+        data: dbData,
+      });
+    });
+  }
+
+  getDbData(cb) {
+  // const queryString = window.location.search;
     // const id = queryString.slice(1);
     const id = 1;
     axios.get(`/${id}`)
       .then((data) => {
-        this.setState({
-          data: data.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
+        cb(data.data);
       });
   }
 
