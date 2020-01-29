@@ -4,8 +4,8 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import styled from 'styled-components';
-import { shallow } from '../../enzyme';
-import AddToCart from './AddToCart';
+import { shallow } from '../enzyme';
+import AddToCart from '../client/components/AddToCart';
 //
 describe('<AddToCart > component test', () => {
   it('should render component', () => {

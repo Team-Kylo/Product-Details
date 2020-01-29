@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable no-undef */
 import React from 'react';
-import { shallow } from '../../enzyme';
+import { shallow } from '../enzyme';
 
-import App from './App';
-import Details from './Details';
-import Item from './Item';
+import App from '../client/components/App';
+import Details from '../client/components/Details';
+import Item from '../client/components/Item';
 //
 describe('App test', () => {
   it('should render', () => {
