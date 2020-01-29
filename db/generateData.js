@@ -4,13 +4,16 @@ const fakeData = [];
 
 const generate = () => {
   for (let i = 0; i < 100; i += 1) {
+    // Math.floor(Math.random() * (max - min)) + min
+    const shipMin = Math.floor(Math.random() * (3 - 1) + 1);
+    const shipMax = Math.floor(Math.random() * (10 - 5) + 5);
     const doc = {
       id: i,
       sellerName: faker.internet.userName(),
       itemDescription: faker.lorem.sentence(),
       itemPrice: faker.commerce.price(),
       itemSpecs: faker.lorem.sentences(),
-      shippingTime: 'Standard: 3-5 Business Days',
+      shippingTime: `Standard: ${shipMin}-${shipMax} Business Days`,
       shippingLoc: faker.address.city(),
     };
     fakeData.push(doc);
