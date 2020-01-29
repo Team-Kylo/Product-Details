@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = require('../server/app.js');
 
 describe('Test the root path', () => {
-  it('It should response the GET method with 200 status', (done) => {
+  it('should response the GET method with 200 status', (done) => {
     request(app).get('/1').then((response) => {
       expect(response.statusCode).toBe(200);
       done();

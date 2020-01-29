@@ -2,8 +2,8 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import styled from 'styled-components';
-import { shallow } from '../../enzyme';
-import Item from './Item';
+import { shallow } from '../enzyme';
+import Item from '../client/components/Item';
 //
 describe('Item component tests', () => {
   it('component renders', () => {
