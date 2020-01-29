@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { shallow } from '../../enzyme';
 import AddToCart from './AddToCart';
-
+//
 describe('<AddToCart > component test', () => {
   it('should render component', () => {
     const wrapper = shallow(<AddToCart />);
