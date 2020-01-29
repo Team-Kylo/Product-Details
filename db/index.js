@@ -11,24 +11,8 @@ db.once('open', () => {
 
 const Model = require('./Product.js');
 
-const save = (product) => {
-  const doc = new Model.Product({
-    id: product.id,
-    sellerName: product.seller,
-    itemDescription: product.desc,
-    itemPrice: product.price,
-    itemSpecs: product.specs,
-    shippingTime: product.shipping,
-    loc: product.loc,
-  });
-
-  doc.save((err) => {
-    if (err) {
-      console.log('error saving to db');
-      return;
-    }
-    console.log('successful save to db');
-  });
+const loadProducts = (data) => {
+  return Model.Product.insertMany(data);
 };
 
 const fetchDocs = (callback) => {
@@ -41,5 +25,5 @@ const fetchDocs = (callback) => {
     });
 };
 
-module.exports.save = save;
+module.exports.loadProducts = loadProducts;
 module.exports.fetchDocs = fetchDocs;
