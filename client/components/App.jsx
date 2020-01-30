@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
@@ -22,10 +24,7 @@ class App extends React.Component {
   }
 
   getDbData(cb) {
-  // const queryString = window.location.search;
-    // const id = queryString.slice(1);
-    const id = 1;
-    axios.get(`/${id}`)
+    axios.get(`/${this.props.id}`)
       .then((data) => {
         cb(data.data);
       });
