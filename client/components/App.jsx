@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
@@ -12,13 +13,16 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: {},
+      mount: false,
     };
   }
 
   componentDidMount() {
     this.getDbData((dbData) => {
+      console.log('db data', dbData);
       this.setState({
         data: dbData,
+        mount: true,
       });
     });
   }
@@ -31,28 +35,35 @@ class App extends React.Component {
   }
 
   render() {
-    const { data } = this.state;
-    const doc = data;
-    return (
-      <div>
+    if (this.state.mount) {
+      const { data } = this.state;
+      const doc = data;
+      return (
         <div>
-          <Item
-            className="item"
-            sellerName={doc.sellerName}
-            itemDesc={doc.itemDescription}
-            itemPrice={doc.itemPrice}
-          />
+          <div>
+            <Item
+              className="item"
+              sellerName={doc.sellerName}
+              itemDesc={doc.itemDescription}
+              itemPrice={doc.itemPrice}
+            />
+          </div>
+          <div>
+            <p>---------------------------------</p>
+          </div>
+          <div>
+            <Details
+              itemSpecs={data.itemSpecs}
+              className="details"
+            />
+          </div>
         </div>
-        <div>
-          <p>---------------------------------</p>
-        </div>
-        <div>
-          <Details
-            className="details"
-          />
-        </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div>Hello</div>
+      );
+    }
   }
 }
 
