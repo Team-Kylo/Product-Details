@@ -9,7 +9,7 @@ import styled from 'styled-components';
 const Button = styled.button`
   width: 50%;
   background: black;
-  color: white;s
+  color: white;
 `;
 
 const DropDown = styled.select`

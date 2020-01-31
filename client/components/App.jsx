@@ -6,6 +6,7 @@ import React from 'react';
 import axios from 'axios';
 import Item from './Item';
 import Details from './Details';
+import Shipping from './Shipping';
 
 
 class App extends React.Component {
@@ -49,13 +50,19 @@ class App extends React.Component {
             />
           </div>
           <div>
-            <p>---------------------------------</p>
+            <p>__________________________________________________________________________</p>
           </div>
           <div>
             <Details
               itemSpecs={data.itemSpecs}
               className="details"
             />
+          </div>
+          <div>
+            <p>__________________________________________________________________________</p>
+          </div>
+          <div>
+            <Shipping shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} />
           </div>
         </div>
       );

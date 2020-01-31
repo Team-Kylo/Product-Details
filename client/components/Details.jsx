@@ -1,3 +1,5 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable react/prop-types */
@@ -14,10 +16,11 @@ class Details extends React.Component {
   }
 
   clickLearnMore() {
-    const toggled = !this.state.buttonText;
+    const toggleClicked = !this.state.clicked;
+    const toggleButton = !this.state.buttonText;
     this.setState({
-      clicked: true,
-      buttonText: toggled,
+      clicked: toggleClicked,
+      buttonText: toggleButton,
     });
   }
 
@@ -28,12 +31,19 @@ class Details extends React.Component {
     if (clicked) {
       item = (
         <form>
+          <p>{itemSpecs.materialA}</p>
+          <p>{itemSpecs.materialB}</p>
           <p>{itemSpecs.materialC}</p>
           <p>{itemSpecs.materialD}</p>
         </form>
       );
     } else {
-      item = null;
+      item = (
+        <form>
+          <p>{itemSpecs.materialA}</p>
+          <p>{itemSpecs.materialB}</p>
+        </form>
+      );
     }
     let button = '';
     if (buttonText) {
@@ -41,17 +51,17 @@ class Details extends React.Component {
     } else {
       button = 'Learn More About This Item';
     }
-
+    ///////////////////////////////////////////////////////////////////////////////////
     return (
       <div>
-        <h4>Item Details</h4>
+        <h3>Item Details</h3>
         <p>Handmade</p>
         <p>
           {itemSpecs.cm}
           cm
         </p>
-        <p>{itemSpecs.materialA}</p>
-        <p>{itemSpecs.materialB}</p>
+        {/* <p>{itemSpecs.materialA}</p>
+        <p>{itemSpecs.materialB}</p> */}
         <div>
           {item}
         </div>
