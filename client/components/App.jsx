@@ -5,7 +5,6 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import Item from './Item';
 import Details from './Details';
 import Shipping from './Shipping';
