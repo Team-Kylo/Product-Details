@@ -33,6 +33,21 @@ font-size: 14px;
 font-weight: 300;
 color: rgb(34, 34, 34);
 `;
+const Button = styled.button`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 12px;
+font-weight: 500;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+border: none;
+outline: none;
+:hover {
+  background-color: rgb(0,0,0, 0.1);
+
+  }
+`;
 
 class Details extends React.Component {
   constructor(props) {
@@ -103,7 +118,7 @@ class Details extends React.Component {
           {item}
         </div>
         <SpecText>
-          <button type="submit" onClick={() => this.clickLearnMore()}>{button}</button>
+          <Button type="submit" onClick={() => this.clickLearnMore()}>{button}</Button>
         </SpecText>
       </div>
     );

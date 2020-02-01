@@ -8,13 +8,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-background: none!important;
 border: none;
-padding: 0!important;
-/*optional*/
-font-family: arial, sans-serif;
-/*input has OS specific font-family*/
-color: black;
+padding: 0;
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 14px;
+color: rgb(51, 51, 51);
 text-decoration: underline;
 cursor: pointer;
 `;
@@ -39,6 +37,34 @@ transform: scale(1);
 opacity: 1;
 visibility: visible;
 `;
+const ShippingFont = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 16px;
+font-weight: 500;
+color: rgb(51, 51, 51);
+`;
+const StandFont = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 14px;
+font-weight: 500;
+color: rgb(51, 51, 51);
+`;
+const LocFont = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 14px;
+color: rgb(51, 51, 51);
+`;
+const VertPadd = styled.div`
+padding-top: 5px;
+padding-bottom: 5px;
+`;
+const CountryZipFont = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 12px;
+font-weight: 500;
+color: rgb(51, 51, 51);
+`;
+
 
 class Shipping extends React.Component {
   constructor(props) {
@@ -68,7 +94,7 @@ class Shipping extends React.Component {
     if (clickedShipCost) {
       country = (
         <div>
-          <div>Country</div>
+          <CountryZipFont>Country</CountryZipFont>
           <select>
             <option>United States</option>
             <option>Germany</option>
@@ -80,7 +106,7 @@ class Shipping extends React.Component {
       );
       zip = (
         <div>
-          <div>Zip or postal code</div>
+          <CountryZipFont>Zip or postal code</CountryZipFont>
           <input />
         </div>
       );
@@ -99,9 +125,15 @@ class Shipping extends React.Component {
     }
     return (
       <div>
-        <h3>Shipping & Policies</h3>
-        <div><b>{shippingTime}</b></div>
-        <div>{`From ${shippingLoc}`}</div>
+        <VertPadd>
+          <ShippingFont>Shipping & Policies</ShippingFont>
+        </VertPadd>
+        <VertPadd>
+          <StandFont>{shippingTime}</StandFont>
+        </VertPadd>
+        <VertPadd>
+          <LocFont>{`From ${shippingLoc}`}</LocFont>
+        </VertPadd>
         <div>
           <Button onClick={() => this.clickShippingCost()}>Get shipping cost</Button>
         </div>

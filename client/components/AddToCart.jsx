@@ -27,7 +27,6 @@ const Button = styled.button`
   color: white;
   width: 200px;
   box-sixing: border-box;
-
 `;
 
 const DropDown = styled.select`
