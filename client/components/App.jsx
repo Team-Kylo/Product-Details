@@ -1,9 +1,11 @@
+/* eslint-disable max-len */
 /* eslint-disable no-else-return */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import Item from './Item';
 import Details from './Details';
 import Shipping from './Shipping';
@@ -62,7 +64,7 @@ class App extends React.Component {
             <p>__________________________________________________________________________</p>
           </div>
           <div>
-            <Shipping shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} />
+            <Shipping sellerName={data.sellerName} shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} />
           </div>
         </div>
       );
