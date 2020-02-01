@@ -1,8 +1,12 @@
+/* eslint-disable no-else-return */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
 import Item from './Item';
 import Details from './Details';
+import Shipping from './Shipping';
 
 
 class App extends React.Component {
@@ -10,50 +14,63 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: {},
+      mount: false,
     };
   }
 
   componentDidMount() {
     this.getDbData((dbData) => {
+      console.log('db data', dbData);
       this.setState({
         data: dbData,
+        mount: true,
       });
     });
   }
 
   getDbData(cb) {
-  // const queryString = window.location.search;
-    // const id = queryString.slice(1);
-    const id = 1;
-    axios.get(`/${id}`)
+    axios.get(`/${this.props.id}`)
       .then((data) => {
         cb(data.data);
       });
   }
 
   render() {
-    const { data } = this.state;
-    const doc = data;
-    return (
-      <div>
+    if (this.state.mount) {
+      const { data } = this.state;
+      const doc = data;
+      return (
         <div>
-          <Item
-            className="item"
-            sellerName={doc.sellerName}
-            itemDesc={doc.itemDescription}
-            itemPrice={doc.itemPrice}
-          />
+          <div>
+            <Item
+              className="item"
+              sellerName={doc.sellerName}
+              itemDesc={doc.itemDescription}
+              itemPrice={doc.itemPrice}
+            />
+          </div>
+          <div>
+            <p>__________________________________________________________________________</p>
+          </div>
+          <div>
+            <Details
+              itemSpecs={data.itemSpecs}
+              className="details"
+            />
+          </div>
+          <div>
+            <p>__________________________________________________________________________</p>
+          </div>
+          <div>
+            <Shipping shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} />
+          </div>
         </div>
-        <div>
-          <p>---------------------------------</p>
-        </div>
-        <div>
-          <Details
-            className="details"
-          />
-        </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div>Hello</div>
+      );
+    }
   }
 }
 
