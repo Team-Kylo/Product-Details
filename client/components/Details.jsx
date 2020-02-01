@@ -14,9 +14,24 @@ const Flexrow = styled.div`
 `;
 const Hand = styled.img`
 content: url(${imgHand});
-width: 45px;
-height: 40px;
-
+width: 20px;
+height: 20px;
+`;
+const VertPadd = styled.div`
+padding-top: 6px;
+padding-bottom: 6px;
+`;
+const ItemDetails = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 16px;
+font-weight: 500;
+color: rgb(51, 51, 51);
+`;
+const SpecText = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 14px;
+font-weight: 300;
+color: rgb(34, 34, 34);
 `;
 
 class Details extends React.Component {
@@ -43,19 +58,19 @@ class Details extends React.Component {
     let item = null;
     if (clicked) {
       item = (
-        <form>
+        <SpecText>
           <p>{itemSpecs.materialA}</p>
           <p>{itemSpecs.materialB}</p>
           <p>{itemSpecs.materialC}</p>
           <p>{itemSpecs.materialD}</p>
-        </form>
+        </SpecText>
       );
     } else {
       item = (
-        <form>
+        <SpecText>
           <p>{itemSpecs.materialA}</p>
           <p>{itemSpecs.materialB}</p>
-        </form>
+        </SpecText>
       );
     }
     let button = '';
@@ -67,21 +82,29 @@ class Details extends React.Component {
     ///////////////////////////////////////////////////////////////////////////////////
     return (
       <div>
-        <h3>Item Details</h3>
-        <Flexrow>
-          <Hand />
-          <p>Handmade</p>
-        </Flexrow>
-        <p>
-          {itemSpecs.cm}
-          cm
-        </p>
-        {/* <p>{itemSpecs.materialA}</p>
-        <p>{itemSpecs.materialB}</p> */}
+        <VertPadd>
+          <ItemDetails>Item Details</ItemDetails>
+        </VertPadd>
+        <VertPadd>
+          <Flexrow>
+            <Hand />
+            <SpecText>
+              Handmade
+            </SpecText>
+          </Flexrow>
+        </VertPadd>
+        <SpecText>
+          <p>
+            {itemSpecs.cm}
+            cm
+          </p>
+        </SpecText>
         <div>
           {item}
         </div>
-        <button type="submit" onClick={() => this.clickLearnMore()}>{button}</button>
+        <SpecText>
+          <button type="submit" onClick={() => this.clickLearnMore()}>{button}</button>
+        </SpecText>
       </div>
     );
   }
