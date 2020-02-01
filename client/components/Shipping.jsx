@@ -6,6 +6,7 @@
 /* eslint-disable lines-between-class-members */
 import React from 'react';
 import styled from 'styled-components';
+import imgPay from './assets/etsy_pay.png';
 
 const Button = styled.button`
 border: none;
@@ -64,6 +65,14 @@ font-size: 12px;
 font-weight: 500;
 color: rgb(51, 51, 51);
 `;
+const Border = styled.div`
+margin-top: 10px;
+border: 1px solid rgb(225, 227, 223);
+`;
+const ImgPay = styled.img`
+content: url(${imgPay})
+width: 50%;
+`;
 
 
 class Shipping extends React.Component {
@@ -114,13 +123,14 @@ class Shipping extends React.Component {
     let shopPol = null;
     if (clickedShopPol) {
       shopPol = (
-        <div>
-          <h4>{`Shop policies for ${sellerName}`}</h4>
+        <Border>
+          <StandFont>{`Shop policies for ${sellerName}`}</StandFont>
           <p>Last updated on</p>
-          <h3>Payments</h3>
-          <b>Secure options</b>
+          <ShippingFont>Payments</ShippingFont>
+          {/* <b>Secure options</b> */}
+          <ImgPay />
           <p>Etsy keeps your payment information secure. Etsy shops never receive your credit card information.</p>
-        </div>
+        </Border>
       );
     }
     return (
