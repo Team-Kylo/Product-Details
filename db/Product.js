@@ -7,7 +7,7 @@ const productSchema = mongoose.Schema({
   itemPrice: Number,
   itemSpecs: Object,
   shippingTime: String,
-  shippingLoc: String,
+  shippingLoc: Object,
 
 }, { collection: 'data' });
 

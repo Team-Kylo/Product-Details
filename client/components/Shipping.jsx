@@ -132,7 +132,7 @@ class Shipping extends React.Component {
           <StandFont>{shippingTime}</StandFont>
         </VertPadd>
         <VertPadd>
-          <LocFont>{`From ${shippingLoc}`}</LocFont>
+          <LocFont>{`From ${shippingLoc.country}`}</LocFont>
         </VertPadd>
         <div>
           <Button onClick={() => this.clickShippingCost()}>Get shipping cost</Button>

@@ -10,7 +10,7 @@ align-items: center;
 const StyledText = styled.div`
   font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
   font-size: 14px;
-  color: grey;
+  color: #757575;
   margin-right: 3px;
   :hover {
     text-decoration: underline;
