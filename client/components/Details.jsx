@@ -5,6 +5,19 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
 import React from 'react';
+import styled from 'styled-components';
+import imgHand from './assets/etsy_hand.png';
+
+const Flexrow = styled.div`
+  display: flex;
+  justify-content: left;
+`;
+const Hand = styled.img`
+content: url(${imgHand});
+width: 45px;
+height: 40px;
+
+`;
 
 class Details extends React.Component {
   constructor(props) {
@@ -55,7 +68,10 @@ class Details extends React.Component {
     return (
       <div>
         <h3>Item Details</h3>
-        <p>Handmade</p>
+        <Flexrow>
+          <Hand />
+          <p>Handmade</p>
+        </Flexrow>
         <p>
           {itemSpecs.cm}
           cm

@@ -7,10 +7,6 @@ import AddToCart from './AddToCart';
 const StyledText = styled.div`
   color: grey;
 `;
-const Flexrow = styled.div`
-  display: flex;
-  justify-content: left;
-`;
 
 const Item = ({ sellerName, itemDesc, itemPrice }) => (
   <div className="product">

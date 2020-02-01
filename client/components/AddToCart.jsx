@@ -5,12 +5,13 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import styled from 'styled-components';
-import imgHand from './assets/etsy_hand.png';
+import imgBell from './assets/etsy_bell.png';
 
 
 const Button = styled.button`
   background: black;
   color: white;
+  width: 200px;
 `;
 
 const DropDown = styled.select`
@@ -18,10 +19,16 @@ const DropDown = styled.select`
     text-align: center;
   }
 `;
-const Hand = styled.img`
-content: url(${imgHand});
-
+const FlexRow = styled.div`
+dispaly: flex;
+justify-content: left;
 `;
+const Bell = styled.img`
+content: url(${imgBell});
+width: 20px;
+height: 20px;
+`;
+
 
 const AddToCart = () => {
   return (
@@ -38,13 +45,13 @@ const AddToCart = () => {
       <div>
         <Button>Add to cart</Button>
       </div>
-      <div>
-        Don't miss out.
-        There's only 4 available and 4 other people have this in their cart right now.
-      </div>
-      <div>
-        <Hand />
-      </div>
+      <FlexRow>
+        <Bell />
+        <div>
+          Don't miss out.
+          There's only 4 available and 4 other people have this in their cart right now.
+        </div>
+      </FlexRow>
     </div>
 
   );
