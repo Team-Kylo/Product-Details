@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-else-return */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
@@ -62,7 +63,7 @@ class App extends React.Component {
             <p>__________________________________________________________________________</p>
           </div>
           <div>
-            <Shipping shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} />
+            <Shipping sellerName={data.sellerName} shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} />
           </div>
         </div>
       );

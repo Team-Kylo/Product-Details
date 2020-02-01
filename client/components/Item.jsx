@@ -5,13 +5,13 @@ import AddToCart from './AddToCart';
 
 
 const StyledText = styled.div`
-  color: palevioletred;
+  color: grey;
 `;
 
 const Item = ({ sellerName, itemDesc, itemPrice }) => (
   <div className="product">
     {/* <div className="seller">{sellerName}</div> */}
-    <StyledText><h4>{sellerName}</h4></StyledText>
+    <StyledText>{sellerName}</StyledText>
     <div className="desc">{itemDesc}</div>
     <div className="price">{`$${itemPrice}.00`}</div>
     <div>
