@@ -78,7 +78,7 @@ class Shipping extends React.Component {
 
   render() {
     const { shippingTime, shippingLoc, sellerName } = this.props;
-    const { clickedShipCost, clickedShopPol, clickedModalX } = this.state;
+    const { clickedShipCost, clickedShopPol } = this.state;
     let country = null;
     let zip = null;
     if (clickedShipCost) {

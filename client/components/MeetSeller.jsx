@@ -1,3 +1,6 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
 import imgSeller from './assets/etsy_seller.png';
