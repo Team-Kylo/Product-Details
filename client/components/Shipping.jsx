@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable max-len */
@@ -6,7 +7,7 @@
 /* eslint-disable lines-between-class-members */
 import React from 'react';
 import styled from 'styled-components';
-import imgPay from './assets/etsy_pay.png';
+import Modal from './Modal';
 
 const Button = styled.button`
 border: none;
@@ -26,17 +27,6 @@ padding: 10px
 const Flexrow = styled.div`
   display: flex;
   justify-content: left;
-`;
-const Modal = styled.div`
-width: 500px;
-background: white;
-border: 1px;
-transition: 1.1s ease-out;
-box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
-filter: blur(0);
-transform: scale(1);
-opacity: 1;
-visibility: visible;
 `;
 const ShippingFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -65,15 +55,6 @@ font-size: 12px;
 font-weight: 500;
 color: rgb(51, 51, 51);
 `;
-const Border = styled.div`
-margin-top: 10px;
-border: 1px solid rgb(225, 227, 223);
-`;
-const ImgPay = styled.img`
-content: url(${imgPay})
-width: 50%;
-`;
-
 
 class Shipping extends React.Component {
   constructor(props) {
@@ -88,16 +69,16 @@ class Shipping extends React.Component {
       clickedShipCost: true,
     });
   }
-  clickShopPolicies() {
-    const toggle = !this.state.clickedShopPol;
+  clickModalX() {
+    const toggleShopPol = !this.state.clickedShopPol;
     this.setState({
-      clickedShopPol: toggle,
+      clickedShopPol: toggleShopPol,
     });
   }
 
   render() {
     const { shippingTime, shippingLoc, sellerName } = this.props;
-    const { clickedShipCost, clickedShopPol } = this.state;
+    const { clickedShipCost, clickedShopPol, clickedModalX } = this.state;
     let country = null;
     let zip = null;
     if (clickedShipCost) {
@@ -123,14 +104,7 @@ class Shipping extends React.Component {
     let shopPol = null;
     if (clickedShopPol) {
       shopPol = (
-        <Border>
-          <StandFont>{`Shop policies for ${sellerName}`}</StandFont>
-          <p>Last updated on</p>
-          <ShippingFont>Payments</ShippingFont>
-          {/* <b>Secure options</b> */}
-          <ImgPay />
-          <p>Etsy keeps your payment information secure. Etsy shops never receive your credit card information.</p>
-        </Border>
+        <Modal sellerName={sellerName} clickModalX={this.clickModalX.bind(this)} />
       );
     }
     return (
@@ -157,11 +131,9 @@ class Shipping extends React.Component {
             </Zip>
           </Flexrow>
         </div>
-        <Button onClick={() => this.clickShopPolicies()}>View shop policies</Button>
+        <Button onClick={() => this.clickModalX()}>View shop policies</Button>
         <div>
-          <Modal>
-            {shopPol}
-          </Modal>
+          {shopPol}
         </div>
       </div>
     );
