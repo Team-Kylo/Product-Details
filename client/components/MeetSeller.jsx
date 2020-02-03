@@ -10,6 +10,9 @@ const FlexRow = styled.div`
 display: flex;
 justify-content: flext-start;
 `;
+const Divider = styled.div`
+border-bottom: 1px solid #E1E3DF
+`;
 const Avatar = styled.img`
 content: url(${imgSeller});
 width: 75px;
@@ -30,8 +33,7 @@ font-size: 16px;
 font-weight: 500;
 color: rgb(51, 51, 51);
 margin-right: 5px;
-padding-top: 6px;
-padding-bottom: 6px;
+padding: 6px 0px 6px 0px;
 `;
 const SellerFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -72,13 +74,12 @@ border-color: rgba(0, 0, 0, 0.2);
 color: #222;
 :hover {
   background-color: rgb(0,0,0, 0.1);
-
   }
 `;
 
 const MeetSeller = ({ sellerName, shippingLoc }) => {
   return (
-    <div>
+    <Divider>
       <FlexRow>
         <MeetSellerFont>
           Meet
@@ -101,7 +102,7 @@ const MeetSeller = ({ sellerName, shippingLoc }) => {
       </FlexRow>
       <MessageButton>{`Message ${sellerName}`}</MessageButton>
       <ResponseFont>This seller usually responds within <b>a few hours.</b></ResponseFont>
-    </div>
+    </Divider>
   );
 };
 

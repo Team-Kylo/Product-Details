@@ -5,18 +5,10 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import Item from './Item';
 import Details from './Details';
 import Shipping from './Shipping';
 import MeetSeller from './MeetSeller';
-
-const Divider = styled.div`
-padding-top: 2px;
-padding-bottom: 2px;
-color: rgb(225, 227, 223);
-`;
-
 
 class App extends React.Component {
   constructor(props) {
@@ -55,10 +47,11 @@ class App extends React.Component {
               sellerName={data.sellerName}
               itemDesc={data.itemDescription}
               itemPrice={data.itemPrice}
+              sellerRating={data.rating}
+              reviewCount={data.reviewCount}
+              watchList={data.watchList}
+              quantityLeft={data.quantity}
             />
-          </div>
-          <div>
-            <Divider>________________________________________</Divider>
           </div>
           <div>
             <Details
@@ -67,19 +60,10 @@ class App extends React.Component {
             />
           </div>
           <div>
-            <Divider>________________________________________</Divider>
-          </div>
-          <div>
             <Shipping sellerName={data.sellerName} shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} />
           </div>
           <div>
-            <Divider>________________________________________</Divider>
-          </div>
-          <div>
             <MeetSeller sellerName={data.sellerName} shippingLoc={data.shippingLoc} />
-          </div>
-          <div>
-            <Divider>________________________________________</Divider>
           </div>
         </div>
       );

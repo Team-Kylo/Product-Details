@@ -8,6 +8,10 @@ const productSchema = mongoose.Schema({
   itemSpecs: Object,
   shippingTime: String,
   shippingLoc: Object,
+  rating: Number,
+  reviewCount: Number,
+  watchList: Number,
+  quantity: Number,
 
 }, { collection: 'data' });
 

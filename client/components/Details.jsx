@@ -12,14 +12,16 @@ const Flexrow = styled.div`
   display: flex;
   justify-content: left;
 `;
+const Divider = styled.div`
+border-bottom: 1px solid #E1E3DF
+`;
 const Hand = styled.img`
 content: url(${imgHand});
 width: 20px;
 height: 20px;
 `;
 const VertPadd = styled.div`
-padding-top: 6px;
-padding-bottom: 6px;
+padding: 6px 0px 6px 0px;
 `;
 const ItemDetails = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -37,10 +39,7 @@ const Button = styled.button`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
 font-size: 12px;
 font-weight: 500;
-border-top-right-radius: 10px;
-border-top-left-radius: 10px;
-border-bottom-right-radius: 10px;
-border-bottom-left-radius: 10px;
+border-radius: 10px 10px 10px 10px;
 border: none;
 outline: none;
 :hover {
@@ -96,7 +95,7 @@ class Details extends React.Component {
     }
     ///////////////////////////////////////////////////////////////////////////////////
     return (
-      <div>
+      <Divider>
         <VertPadd>
           <ItemDetails>Item Details</ItemDetails>
         </VertPadd>
@@ -120,7 +119,7 @@ class Details extends React.Component {
         <SpecText>
           <Button type="submit" onClick={() => this.clickLearnMore()}>{button}</Button>
         </SpecText>
-      </div>
+      </Divider>
     );
   }
 }
