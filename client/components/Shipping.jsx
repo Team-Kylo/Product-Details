@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable max-len */
@@ -6,15 +7,14 @@
 /* eslint-disable lines-between-class-members */
 import React from 'react';
 import styled from 'styled-components';
+import Modal from './Modal';
 
 const Button = styled.button`
-background: none!important;
 border: none;
-padding: 0!important;
-/*optional*/
-font-family: arial, sans-serif;
-/*input has OS specific font-family*/
-color: black;
+padding: 0;
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 14px;
+color: rgb(51, 51, 51);
 text-decoration: underline;
 cursor: pointer;
 `;
@@ -28,16 +28,32 @@ const Flexrow = styled.div`
   display: flex;
   justify-content: left;
 `;
-const Modal = styled.div`
-width: 500px;
-background: white;
-border: 1px;
-transition: 1.1s ease-out;
-box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
-filter: blur(0);
-transform: scale(1);
-opacity: 1;
-visibility: visible;
+const ShippingFont = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 16px;
+font-weight: 500;
+color: rgb(51, 51, 51);
+`;
+const StandFont = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 14px;
+font-weight: 500;
+color: rgb(51, 51, 51);
+`;
+const LocFont = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 14px;
+color: rgb(51, 51, 51);
+`;
+const VertPadd = styled.div`
+padding-top: 5px;
+padding-bottom: 5px;
+`;
+const CountryZipFont = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 12px;
+font-weight: 500;
+color: rgb(51, 51, 51);
 `;
 
 class Shipping extends React.Component {
@@ -53,10 +69,10 @@ class Shipping extends React.Component {
       clickedShipCost: true,
     });
   }
-  clickShopPolicies() {
-    const toggle = !this.state.clickedShopPol;
+  clickModalX() {
+    const toggleShopPol = !this.state.clickedShopPol;
     this.setState({
-      clickedShopPol: toggle,
+      clickedShopPol: toggleShopPol,
     });
   }
 
@@ -68,7 +84,7 @@ class Shipping extends React.Component {
     if (clickedShipCost) {
       country = (
         <div>
-          <div>Country</div>
+          <CountryZipFont>Country</CountryZipFont>
           <select>
             <option>United States</option>
             <option>Germany</option>
@@ -80,7 +96,7 @@ class Shipping extends React.Component {
       );
       zip = (
         <div>
-          <div>Zip or postal code</div>
+          <CountryZipFont>Zip or postal code</CountryZipFont>
           <input />
         </div>
       );
@@ -88,20 +104,20 @@ class Shipping extends React.Component {
     let shopPol = null;
     if (clickedShopPol) {
       shopPol = (
-        <div>
-          <h4>{`Shop policies for ${sellerName}`}</h4>
-          <p>Last updated on</p>
-          <h3>Payments</h3>
-          <b>Secure options</b>
-          <p>Etsy keeps your payment information secure. Etsy shops never receive your credit card information.</p>
-        </div>
+        <Modal sellerName={sellerName} clickModalX={this.clickModalX.bind(this)} />
       );
     }
     return (
       <div>
-        <h3>Shipping & Policies</h3>
-        <div><b>{shippingTime}</b></div>
-        <div>{`From ${shippingLoc}`}</div>
+        <VertPadd>
+          <ShippingFont>Shipping & Policies</ShippingFont>
+        </VertPadd>
+        <VertPadd>
+          <StandFont>{shippingTime}</StandFont>
+        </VertPadd>
+        <VertPadd>
+          <LocFont>{`From ${shippingLoc.country}`}</LocFont>
+        </VertPadd>
         <div>
           <Button onClick={() => this.clickShippingCost()}>Get shipping cost</Button>
         </div>
@@ -115,11 +131,9 @@ class Shipping extends React.Component {
             </Zip>
           </Flexrow>
         </div>
-        <Button onClick={() => this.clickShopPolicies()}>View shop policies</Button>
+        <Button onClick={() => this.clickModalX()}>View shop policies</Button>
         <div>
-          <Modal>
-            {shopPol}
-          </Modal>
+          {shopPol}
         </div>
       </div>
     );

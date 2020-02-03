@@ -23,7 +23,7 @@ const generate = () => {
         materialD: `${faker.commerce.productMaterial()} ${faker.commerce.productMaterial()} ${faker.commerce.productMaterial()}`,
       },
       shippingTime: `Standard: ${shipMin}-${shipMax} Business Days`,
-      shippingLoc: faker.address.city(),
+      shippingLoc: { city: faker.address.city(), country: faker.address.country() },
     };
     fakeData.push(doc);
   }
