@@ -28,6 +28,9 @@ const Flexrow = styled.div`
   display: flex;
   justify-content: left;
 `;
+const Divider = styled.div`
+border-bottom: 1px solid #E1E3DF
+`;
 const ShippingFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
 font-size: 16px;
@@ -46,8 +49,7 @@ font-size: 14px;
 color: rgb(51, 51, 51);
 `;
 const VertPadd = styled.div`
-padding-top: 5px;
-padding-bottom: 5px;
+padding: 5px 0px 5px 0px;
 `;
 const CountryZipFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -108,7 +110,7 @@ class Shipping extends React.Component {
       );
     }
     return (
-      <div>
+      <Divider>
         <VertPadd>
           <ShippingFont>Shipping & Policies</ShippingFont>
         </VertPadd>
@@ -135,7 +137,7 @@ class Shipping extends React.Component {
         <div>
           {shopPol}
         </div>
-      </div>
+      </Divider>
     );
   }
 }

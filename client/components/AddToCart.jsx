@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-filename-extension */
@@ -15,14 +17,8 @@ const Button = styled.button`
   font-stretch: 100%;
   font-weight: 700;
   line-height: 18px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  padding: 8px 12px 8px 12px;
+  border-radius: 3px 3px 3px 3px;
   width: 282px;
   color: white;
   width: 200px;
@@ -35,12 +31,10 @@ const DropDown = styled.select`
   }
 `;
 const VertPadd = styled.div`
-padding-top: 6px;
-padding-bottom: 6px;
+padding: 6px 0px 6px 0px;
 `;
 const EndPadd = styled.div`
-padding-top: 6px;
-padding-bottom: 2px;
+padding: 6px 0px 2px 0px;
 `;
 const FlexRow = styled.div`
 dispaly: flex;
@@ -57,7 +51,15 @@ font-size: 14px;
 `;
 
 
-const AddToCart = () => {
+const AddToCart = ({ quantityLeft, watchList }) => {
+  const optionArrayBuilder = () => {
+    const result = [];
+    for (let i = 1; i <= quantityLeft; i++) {
+      result.push(<option key={i}>{i}</option>);
+    }
+    return result;
+  };
+
   return (
     <div>
       <VertPadd>
@@ -68,10 +70,7 @@ const AddToCart = () => {
       <VertPadd>
         <div>
           <DropDown>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
+            {optionArrayBuilder()}
           </DropDown>
         </div>
       </VertPadd>
@@ -88,10 +87,10 @@ const AddToCart = () => {
           <div>
             <Text>
               <b>Don't miss out.</b>
-               There's only 4 available
+              {`There's only ${quantityLeft} available`}
             </Text>
             <Text>
-             and 4 other people have this in their cart right now.
+              {`and ${watchList} other people have this in their cart right now.`}
             </Text>
           </div>
         </EndPadd>

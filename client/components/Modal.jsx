@@ -52,9 +52,7 @@ font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid 
 font-size: 16px;
 color: #222222;
 font-weight: 500;
-margin-top: 12px;
-margin-bottom: 6px;
-margin-left: 11px;
+margin: 12px 0px 6px 11px;
 `;
 const ImgPay = styled.img`
 content: url(${imgPay});
@@ -71,11 +69,9 @@ const EndText = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
 font-size: 14px;
 margin-left: 11px;
-padding-top: 5px;
-padding-bottom: 8px;
+padding: 5px 0px 8px 0px;
 color: #222222;
 `;
-
 
 const Modal = ({ sellerName, clickModalX }) => {
   return (
