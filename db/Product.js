@@ -12,6 +12,8 @@ const productSchema = mongoose.Schema({
   reviewCount: Number,
   watchList: Number,
   quantity: Number,
+  avatar: String,
+  countryList: Array,
 
 }, { collection: 'data' });
 

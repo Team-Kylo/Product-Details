@@ -33,6 +33,9 @@ const DropDown = styled.select`
 const VertPadd = styled.div`
 padding: 6px 0px 6px 0px;
 `;
+const MainPadd = styled.div`
+padding-bottom: 12px;
+`;
 const EndPadd = styled.div`
 padding: 6px 0px 2px 0px;
 `;
@@ -61,7 +64,7 @@ const AddToCart = ({ quantityLeft, watchList }) => {
   };
 
   return (
-    <div>
+    <MainPadd>
       <VertPadd>
         <Text>
           <div>Quantity</div>
@@ -95,7 +98,7 @@ const AddToCart = ({ quantityLeft, watchList }) => {
           </div>
         </EndPadd>
       </FlexRow>
-    </div>
+    </MainPadd>
 
   );
 };

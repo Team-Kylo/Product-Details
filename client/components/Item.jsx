@@ -3,9 +3,10 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable padded-blocks */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import AddToCart from './AddToCart';
+
 
 const FlexRow = styled.div`
 display: flex;
@@ -91,7 +92,6 @@ const Item = ({ sellerName, itemDesc, itemPrice, sellerRating, reviewCount, watc
       </VertPadd>
       <div>
         {AddToCartRender}
-        {/* <AddToCart watchList={watchList} quantityLeft={quantityLeft} /> */}
       </div>
     </Divider>
   );
