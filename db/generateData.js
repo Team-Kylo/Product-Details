@@ -45,6 +45,7 @@ const generate = () => {
       reviewCount: randReviewCount,
       watchList: watchListCount,
       quantity: quantityLeft,
+      avatar: `https://picsum.photos/id/${150 + i}/75/75`,
     };
     fakeData.push(doc);
   }

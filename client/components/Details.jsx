@@ -13,7 +13,8 @@ const Flexrow = styled.div`
   justify-content: left;
 `;
 const Divider = styled.div`
-border-bottom: 1px solid #E1E3DF
+width: 100%;
+border-bottom: 1px solid #E1E3DF;
 `;
 const Hand = styled.img`
 content: url(${imgHand});
@@ -28,6 +29,7 @@ font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid 
 font-size: 16px;
 font-weight: 500;
 color: rgb(51, 51, 51);
+padding-top: 8px;
 `;
 const SpecText = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;

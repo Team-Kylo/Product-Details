@@ -24,12 +24,17 @@ padding: 10px
 const Zip = styled.div`
 padding: 10px
 `;
+const FlexPage = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+`;
 const Flexrow = styled.div`
   display: flex;
   justify-content: left;
 `;
 const Divider = styled.div`
-border-bottom: 1px solid #E1E3DF
+border-bottom: 1px solid #E1E3DF;
 `;
 const ShippingFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -123,16 +128,14 @@ class Shipping extends React.Component {
         <div>
           <Button onClick={() => this.clickShippingCost()}>Get shipping cost</Button>
         </div>
-        <div>
-          <Flexrow>
-            <Country>
-              {country}
-            </Country>
-            <Zip>
-              {zip}
-            </Zip>
-          </Flexrow>
-        </div>
+        <Flexrow>
+          <Country>
+            {country}
+          </Country>
+          <Zip>
+            {zip}
+          </Zip>
+        </Flexrow>
         <Button onClick={() => this.clickModalX()}>View shop policies</Button>
         <div>
           {shopPol}
