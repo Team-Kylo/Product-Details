@@ -13,6 +13,7 @@ const productSchema = mongoose.Schema({
   watchList: Number,
   quantity: Number,
   avatar: String,
+  countryList: Array,
 
 }, { collection: 'data' });
 

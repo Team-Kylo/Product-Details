@@ -74,10 +74,10 @@ class App extends React.Component {
             />
           </FlexPage>
           <FlexPage>
-            <Shipping sellerName={data.sellerName} shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} />
+            <Shipping sellerName={data.sellerName} shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} countryList={data.countryList} />
           </FlexPage>
           <FlexPage>
-            <MeetSeller sellerName={data.sellerName} shippingLoc={data.shippingLoc} />
+            <MeetSeller sellerName={data.sellerName} shippingLoc={data.shippingLoc} avatarURL={data.avatar} />
           </FlexPage>
         </Main>
       );

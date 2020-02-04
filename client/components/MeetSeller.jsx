@@ -3,23 +3,27 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import imgSeller from './assets/etsy_seller.png';
+// import imgSeller from './assets/etsy_seller.png';
 import imgPin from './assets/etsy_pin.png';
 
 const FlexRow = styled.div`
 display: flex;
 justify-content: flext-start;
+padding-top: 6px;
 `;
 const Divider = styled.div`
-border-bottom: 1px solid #E1E3DF
+border-bottom: 1px solid #E1E3DF;
+width: 100%;
 `;
 const Avatar = styled.img`
-content: url(${imgSeller});
+content: url(${(props) => props.avatar});
 width: 75px;
-height: 70px;
+height: 75px;
+border-radius: 50%;
 margin-right: 5px;
 padding-bottom: 6px;
 `;
+
 const Pin = styled.img`
 content: url(${imgPin});
 padding-top: 3px;
@@ -40,13 +44,13 @@ font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid 
 font-size: 14px;
 font-weight: 500;
 color: rgb(51, 51, 51);
-padding-top: 15px;
 `;
 const ResponseFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
 font-size: 14px;
 color: rgb(51, 51, 51);
-padding-top: 8px;
+padding: 8px 0px 8px 0px;
+
 `;
 const Locfont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -77,7 +81,7 @@ color: #222;
   }
 `;
 
-const MeetSeller = ({ sellerName, shippingLoc }) => {
+const MeetSeller = ({ sellerName, shippingLoc, avatarURL }) => {
   return (
     <Divider>
       <FlexRow>
@@ -89,7 +93,7 @@ const MeetSeller = ({ sellerName, shippingLoc }) => {
         </SellerButton>
       </FlexRow>
       <FlexRow>
-        <Avatar />
+        <Avatar avatar={avatarURL} />
         <SellerFont>
           {sellerName}
           <FlexRow>

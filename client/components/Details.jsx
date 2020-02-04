@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable spaced-comment */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
@@ -29,7 +30,7 @@ font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid 
 font-size: 16px;
 font-weight: 500;
 color: rgb(51, 51, 51);
-padding-top: 8px;
+padding-top: 6px;
 `;
 const SpecText = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -46,8 +47,10 @@ border: none;
 outline: none;
 :hover {
   background-color: rgb(0,0,0, 0.1);
-
   }
+`;
+const TextFade = styled.div`
+box-shadow: 0 -5px 50px 50px #fff;
 `;
 
 class Details extends React.Component {
@@ -71,22 +74,24 @@ class Details extends React.Component {
   render() {
     const { itemSpecs } = this.props;
     const { clicked, buttonText } = this.state;
+    const specVals = Object.values(itemSpecs);
     let item = null;
     if (clicked) {
       item = (
-        <SpecText>
-          <p>{itemSpecs.materialA}</p>
-          <p>{itemSpecs.materialB}</p>
-          <p>{itemSpecs.materialC}</p>
-          <p>{itemSpecs.materialD}</p>
-        </SpecText>
+        <div>
+          {specVals.map((spec, idx) => <p key={idx}>{spec}</p>)}
+        </div>
       );
     } else {
       item = (
-        <SpecText>
-          <p>{itemSpecs.materialA}</p>
-          <p>{itemSpecs.materialB}</p>
-        </SpecText>
+        <div>
+          {/* {specVals.map((spec, idx) => <p key={idx}>{spec}</p>).slice(0, 4)} */}
+          <p>{specVals[0]}</p>
+          <p>{specVals[1]}</p>
+          <p style={{ color: 'rgb(0,0,0, 0.6)' }}>{specVals[2]}</p>
+          <p style={{ color: 'rgb(0,0,0, 0.3)' }}>{specVals[3]}</p>
+          <p style={{ color: 'rgb(0,0,0, 0.1)' }}>{specVals[4]}</p>
+        </div>
       );
     }
     let button = '';
@@ -110,16 +115,11 @@ class Details extends React.Component {
           </Flexrow>
         </VertPadd>
         <SpecText>
-          <p>
-            {itemSpecs.cm}
-            cm
-          </p>
-        </SpecText>
-        <div>
           {item}
-        </div>
+        </SpecText>
         <SpecText>
           <Button type="submit" onClick={() => this.clickLearnMore()}>{button}</Button>
+          <VertPadd />
         </SpecText>
       </Divider>
     );

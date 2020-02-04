@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
@@ -24,23 +25,20 @@ padding: 10px
 const Zip = styled.div`
 padding: 10px
 `;
-const FlexPage = styled.div`
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-`;
 const Flexrow = styled.div`
   display: flex;
   justify-content: left;
 `;
 const Divider = styled.div`
 border-bottom: 1px solid #E1E3DF;
+width: 100%;
 `;
 const ShippingFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
 font-size: 16px;
 font-weight: 500;
 color: rgb(51, 51, 51);
+padding-top: 6px;
 `;
 const StandFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -84,7 +82,8 @@ class Shipping extends React.Component {
   }
 
   render() {
-    const { shippingTime, shippingLoc, sellerName } = this.props;
+    // eslint-disable-next-line object-curly-newline
+    const { shippingTime, shippingLoc, sellerName, countryList } = this.props;
     const { clickedShipCost, clickedShopPol } = this.state;
     let country = null;
     let zip = null;
@@ -93,10 +92,7 @@ class Shipping extends React.Component {
         <div>
           <CountryZipFont>Country</CountryZipFont>
           <select>
-            <option>United States</option>
-            <option>Germany</option>
-            <option>Canada</option>
-            <option>Australia</option>
+            {countryList.map((nation, idx) => <option key={idx}>{nation}</option>)}
           </select>
         </div>
 
@@ -137,6 +133,7 @@ class Shipping extends React.Component {
           </Zip>
         </Flexrow>
         <Button onClick={() => this.clickModalX()}>View shop policies</Button>
+        <div style={{ padding: '6px' }} />
         <div>
           {shopPol}
         </div>
@@ -146,11 +143,3 @@ class Shipping extends React.Component {
 }
 
 export default Shipping;
-
-// Shop policies for WeaponHouse
-// Last updated on
-// Payments
-//  Secure options
-
-// Accepts Etsy Gift Cards and Etsy Credits
-// Etsy keeps your payment information secure. Etsy shops never receive your credit card information.
