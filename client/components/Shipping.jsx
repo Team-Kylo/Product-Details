@@ -85,6 +85,9 @@ class Shipping extends React.Component {
     // eslint-disable-next-line object-curly-newline
     const { shippingTime, shippingLoc, sellerName, countryList } = this.props;
     const { clickedShipCost, clickedShopPol } = this.state;
+    const sortedCountryList = countryList.sort().filter((el, idx, arr) => {
+      return arr.indexOf(el) === idx;
+    });
     let country = null;
     let zip = null;
     if (clickedShipCost) {
@@ -92,7 +95,7 @@ class Shipping extends React.Component {
         <div>
           <CountryZipFont>Country</CountryZipFont>
           <select>
-            {countryList.map((nation, idx) => <option key={idx}>{nation}</option>)}
+            {sortedCountryList.map((nation, idx) => <option key={idx}>{nation}</option>)}
           </select>
         </div>
 
