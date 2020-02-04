@@ -1,9 +1,6 @@
-/* eslint-disable max-len */
-/* eslint-disable object-curly-newline */
-/* eslint-disable arrow-body-style */
-/* eslint-disable padded-blocks */
-/* eslint-disable react/prop-types */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import AddToCart from './AddToCart';
 
@@ -42,7 +39,9 @@ font-weight: 500;
 `;
 
 
-const Item = ({ sellerName, itemDesc, itemPrice, sellerRating, reviewCount, watchList, quantityLeft }) => {
+const Item = ({
+  sellerName, itemDesc, itemPrice, sellerRating, reviewCount, watchList, quantityLeft,
+}) => {
   let stars = null;
   switch (sellerRating) {
     case 0:
@@ -95,6 +94,25 @@ const Item = ({ sellerName, itemDesc, itemPrice, sellerRating, reviewCount, watc
       </div>
     </Divider>
   );
+};
+
+Item.propTypes = {
+  sellerName: PropTypes.string,
+  itemDesc: PropTypes.string,
+  itemPrice: PropTypes.number,
+  sellerRating: PropTypes.number,
+  reviewCount: PropTypes.number,
+  watchList: PropTypes.number,
+  quantityLeft: PropTypes.number,
+};
+Item.defaultProps = {
+  sellerName: '',
+  itemDesc: '',
+  itemPrice: 0,
+  sellerRating: 0,
+  reviewCount: 0,
+  watchList: 0,
+  quantityLeft: 0,
 };
 
 export default Item;

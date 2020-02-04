@@ -9,7 +9,6 @@ const fakeData = [];
 
 const generate = () => {
   for (let i = 0; i < 100; i++) {
-    // Math.floor(Math.random() * (max - min)) + min
     const shipMin = Math.floor(Math.random() * (3) + 1);
     const shipMax = Math.floor(Math.random() * (10) + 5);
     const randReviewCount = Math.floor(Math.random() * (1000) + 200);

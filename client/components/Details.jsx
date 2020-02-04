@@ -1,11 +1,6 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable spaced-comment */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/prop-types */
-/* eslint-disable arrow-body-style */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import imgHand from './assets/etsy_hand.png';
 
@@ -49,9 +44,6 @@ outline: none;
   background-color: rgb(0,0,0, 0.1);
   }
 `;
-const TextFade = styled.div`
-box-shadow: 0 -5px 50px 50px #fff;
-`;
 
 class Details extends React.Component {
   constructor(props) {
@@ -63,8 +55,9 @@ class Details extends React.Component {
   }
 
   clickLearnMore() {
-    const toggleClicked = !this.state.clicked;
-    const toggleButton = !this.state.buttonText;
+    const { clicked, buttonText } = this.state;
+    const toggleClicked = !clicked;
+    const toggleButton = !buttonText;
     this.setState({
       clicked: toggleClicked,
       buttonText: toggleButton,
@@ -79,7 +72,7 @@ class Details extends React.Component {
     if (clicked) {
       item = (
         <div>
-          {specVals.map((spec, idx) => <p key={idx}>{spec}</p>)}
+          {specVals.map((spec) => <p key={spec}>{spec}</p>)}
         </div>
       );
     } else {
@@ -100,7 +93,6 @@ class Details extends React.Component {
     } else {
       button = 'Learn More About This Item';
     }
-    ///////////////////////////////////////////////////////////////////////////////////
     return (
       <Divider>
         <VertPadd>
@@ -125,5 +117,11 @@ class Details extends React.Component {
     );
   }
 }
+Details.propTypes = {
+  itemSpecs: PropTypes.objectOf(PropTypes.string),
+};
+Details.defaultProps = {
+  itemSpecs: {},
+};
 
 export default Details;

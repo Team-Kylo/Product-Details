@@ -1,12 +1,6 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable max-len */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/prop-types */
-/* eslint-disable lines-between-class-members */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Modal from './Modal';
 
@@ -68,26 +62,32 @@ class Shipping extends React.Component {
       clickedShipCost: false,
       clickedShopPol: false,
     };
+    this.clickShippingCost = this.clickShippingCost.bind(this);
+    this.clickModalX = this.clickModalX.bind(this);
   }
+
   clickShippingCost() {
     this.setState({
       clickedShipCost: true,
     });
   }
+
   clickModalX() {
-    const toggleShopPol = !this.state.clickedShopPol;
+    const { clickedShopPol } = this.state;
+    const toggleShopPol = !clickedShopPol;
     this.setState({
       clickedShopPol: toggleShopPol,
     });
   }
 
   render() {
-    // eslint-disable-next-line object-curly-newline
-    const { shippingTime, shippingLoc, sellerName, countryList } = this.props;
+    const {
+      shippingTime, shippingLoc, sellerName, countryList,
+    } = this.props;
     const { clickedShipCost, clickedShopPol } = this.state;
-    const sortedCountryList = countryList.sort().filter((el, idx, arr) => {
-      return arr.indexOf(el) === idx;
-    });
+    const sortedCountryList = countryList.sort().filter((el, idx, arr) => (
+      arr.indexOf(el) === idx
+    ));
     let country = null;
     let zip = null;
     if (clickedShipCost) {
@@ -95,7 +95,7 @@ class Shipping extends React.Component {
         <div>
           <CountryZipFont>Country</CountryZipFont>
           <select>
-            {sortedCountryList.map((nation, idx) => <option key={idx}>{nation}</option>)}
+            {sortedCountryList.map((nation) => <option key={nation}>{nation}</option>)}
           </select>
         </div>
 
@@ -110,7 +110,7 @@ class Shipping extends React.Component {
     let shopPol = null;
     if (clickedShopPol) {
       shopPol = (
-        <Modal sellerName={sellerName} clickModalX={this.clickModalX.bind(this)} />
+        <Modal sellerName={sellerName} clickModalX={this.clickModalX} />
       );
     }
     return (
@@ -144,5 +144,20 @@ class Shipping extends React.Component {
     );
   }
 }
+
+
+Shipping.propTypes = {
+  shippingTime: PropTypes.string,
+  shippingLoc: PropTypes.objectOf(PropTypes.string),
+  sellerName: PropTypes.string,
+  countryList: PropTypes.arrayOf(PropTypes.string),
+};
+Shipping.defaultProps = {
+  shippingTime: '',
+  shippingLoc: {},
+  sellerName: '',
+  countryList: [],
+};
+
 
 export default Shipping;
