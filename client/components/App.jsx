@@ -1,10 +1,7 @@
-/* eslint-disable max-len */
-/* eslint-disable no-else-return */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable class-methods-use-this */
+
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Item from './Item';
 import Details from './Details';
@@ -44,14 +41,16 @@ class App extends React.Component {
   }
 
   getDbData(cb) {
-    axios.get(`/${this.props.id}`)
+    const { id } = this.props;
+    axios.get(`/${id}`)
       .then((data) => {
         cb(data.data);
       });
   }
 
   render() {
-    if (this.state.mount) {
+    const { mount } = this.state;
+    if (mount) {
       const { data } = this.state;
       return (
         <Main>
@@ -70,23 +69,36 @@ class App extends React.Component {
           <FlexPage>
             <Details
               itemSpecs={data.itemSpecs}
-              className="details"
             />
           </FlexPage>
           <FlexPage>
-            <Shipping sellerName={data.sellerName} shippingLoc={data.shippingLoc} shippingTime={data.shippingTime} countryList={data.countryList} />
+            <Shipping
+              sellerName={data.sellerName}
+              shippingLoc={data.shippingLoc}
+              shippingTime={data.shippingTime}
+              countryList={data.countryList}
+            />
           </FlexPage>
           <FlexPage>
-            <MeetSeller sellerName={data.sellerName} shippingLoc={data.shippingLoc} avatarURL={data.avatar} />
+            <MeetSeller
+              sellerName={data.sellerName}
+              shippingLoc={data.shippingLoc}
+              avatarURL={data.avatar}
+            />
           </FlexPage>
         </Main>
       );
-    } else {
-      return (
-        <div>Hello</div>
-      );
     }
+    return null;
   }
 }
+
+App.propTypes = {
+  id: PropTypes.number,
+};
+App.defaultProps = {
+  id: 0,
+};
+
 
 export default App;

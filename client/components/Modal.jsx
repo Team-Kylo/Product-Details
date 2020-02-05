@@ -1,7 +1,6 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/prop-types */
-/* eslint-disable max-len */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import imgPay from './assets/etsy_pay.png';
 
@@ -73,8 +72,8 @@ padding: 5px 0px 8px 0px;
 color: #222222;
 `;
 
-const Modal = ({ sellerName, clickModalX }) => {
-  return (
+const Modal = ({ sellerName, clickModalX }) => (
+  (
     <ModalDisplay>
       <ModalBody>
         <Header>
@@ -85,10 +84,22 @@ const Modal = ({ sellerName, clickModalX }) => {
         <PaymentsText>Payments</PaymentsText>
         <ImgPay />
         <GiftCardText>Accepts Etsy Gift Cards and Etsy Credits</GiftCardText>
-        <EndText>Etsy keeps your payment information secure. Etsy shops never receive your credit card information.</EndText>
+        <EndText>
+          Etsy keeps your payment information secure.
+           Etsy shops never receive your credit card information.
+        </EndText>
       </ModalBody>
     </ModalDisplay>
-  );
+  )
+);
+
+Modal.propTypes = {
+  sellerName: PropTypes.string,
+  clickModalX: PropTypes.func,
+};
+Modal.defaultProps = {
+  sellerName: '',
+  clickModalX: null,
 };
 
 export default Modal;

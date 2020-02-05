@@ -1,11 +1,6 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable react/prop-types */
-/* eslint-disable arrow-body-style */
-/* eslint-disable comma-dangle */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-undef */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import imgBell from './assets/etsy_bell.png';
 
@@ -57,7 +52,7 @@ font-size: 14px;
 const AddToCart = ({ quantityLeft, watchList }) => {
   const optionArrayBuilder = () => {
     const result = [];
-    for (let i = 1; i <= quantityLeft; i++) {
+    for (let i = 1; i <= quantityLeft; i += 1) {
       result.push(<option key={i}>{i}</option>);
     }
     return result;
@@ -89,7 +84,7 @@ const AddToCart = ({ quantityLeft, watchList }) => {
         <EndPadd>
           <div>
             <Text>
-              <b>Don't miss out.</b>
+              <b>{'Don\'t miss out.'}</b>
               {`There's only ${quantityLeft} available`}
             </Text>
             <Text>
@@ -103,5 +98,13 @@ const AddToCart = ({ quantityLeft, watchList }) => {
   );
 };
 
+AddToCart.propTypes = {
+  quantityLeft: PropTypes.number,
+  watchList: PropTypes.number,
+};
+AddToCart.defaultProps = {
+  quantityLeft: 0,
+  watchList: 0,
+};
 
 export default AddToCart;
