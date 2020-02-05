@@ -94,10 +94,10 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
 };
 App.defaultProps = {
-  id: 0,
+  id: '',
 };
 
 

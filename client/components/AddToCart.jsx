@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import imgBell from './assets/etsy_bell.png';
+import imgBell from '../../assets/etsy_bell.jpeg';
 
 
 const Button = styled.button`
@@ -26,26 +26,27 @@ const DropDown = styled.select`
   }
 `;
 const VertPadd = styled.div`
-padding: 6px 0px 6px 0px;
+  padding: 6px 0px 6px 0px;
 `;
 const MainPadd = styled.div`
-padding-bottom: 12px;
+  padding-bottom: 12px;
 `;
 const EndPadd = styled.div`
-padding: 6px 0px 2px 0px;
+  padding: 6px 0px 2px 0px;
 `;
 const FlexRow = styled.div`
-dispaly: flex;
-justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
+
 `;
 const Bell = styled.img`
-content: url(${imgBell});
-width: 20px;
-height: 20px;
+  content: url(${imgBell});
+  width: 48px;
+  height: 48px;
 `;
 const Text = styled.div`
-font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
-font-size: 14px;
+  font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+  font-size: 13.15px;
 `;
 
 
@@ -85,10 +86,10 @@ const AddToCart = ({ quantityLeft, watchList }) => {
           <div>
             <Text>
               <b>{'Don\'t miss out.'}</b>
-              {`There's only ${quantityLeft} available`}
-            </Text>
-            <Text>
-              {`and ${watchList} other people have this in their cart right now.`}
+              {
+                `There's only ${quantityLeft} available and ${watchList}
+                other people have this in their cart right now.`
+              }
             </Text>
           </div>
         </EndPadd>
