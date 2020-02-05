@@ -1,9 +1,7 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/prop-types */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import imgSeller from './assets/etsy_seller.png';
 import imgPin from './assets/etsy_pin.png';
 
 const FlexRow = styled.div`
@@ -81,8 +79,8 @@ color: #222;
   }
 `;
 
-const MeetSeller = ({ sellerName, shippingLoc, avatarURL }) => {
-  return (
+const MeetSeller = ({ sellerName, shippingLoc, avatarURL }) => (
+  (
     <Divider>
       <FlexRow>
         <MeetSellerFont>
@@ -105,9 +103,23 @@ const MeetSeller = ({ sellerName, shippingLoc, avatarURL }) => {
         </SellerFont>
       </FlexRow>
       <MessageButton>{`Message ${sellerName}`}</MessageButton>
-      <ResponseFont>This seller usually responds within <b>a few hours.</b></ResponseFont>
+      <ResponseFont>
+        This seller usually responds within
+        <b>a few hours.</b>
+      </ResponseFont>
     </Divider>
-  );
+  )
+);
+
+MeetSeller.propTypes = {
+  sellerName: PropTypes.string,
+  shippingLoc: PropTypes.objectOf(PropTypes.string),
+  avatarURL: PropTypes.string,
+};
+MeetSeller.defaultProps = {
+  sellerName: '',
+  shippingLoc: {},
+  avatarURL: '',
 };
 
 export default MeetSeller;
