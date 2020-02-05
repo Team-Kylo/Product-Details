@@ -15,6 +15,6 @@ const productSchema = mongoose.Schema({
   avatar: String,
   countryList: Array,
 
-}, { collection: 'data' });
+});
 
-module.exports.Product = mongoose.model('Product', productSchema);
+module.exports.Product = mongoose.model('Details', productSchema);
