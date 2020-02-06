@@ -16,7 +16,7 @@ display: block;
 const ModalBody = styled.div`
   position:fixed;
   background: white;
-  width: 80%;
+  width: 50%;
   height: auto;
   top:50%;
   left:50%;

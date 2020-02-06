@@ -42,7 +42,8 @@ class App extends React.Component {
 
   getDbData(cb) {
     const { id } = this.props;
-    axios.get(`/${id}`)
+    console.log(id);
+    axios.get(`/details/${id}`)
       .then((data) => {
         cb(data.data);
       });
