@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.static('./public'));
 
 
-app.get('/:id', (req, res) => {
+app.get('/details/:id', (req, res) => {
   db.fetchDocs((err, data) => {
     if (err) {
       res.status(400).json(err);

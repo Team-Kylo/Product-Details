@@ -35,13 +35,13 @@ const EndPadd = styled.div`
 padding: 6px 0px 2px 0px;
 `;
 const FlexRow = styled.div`
-dispaly: flex;
+display: flex;
 justify-content: flex-start;
 `;
 const Bell = styled.img`
 content: url(${imgBell});
-width: 20px;
-height: 20px;
+width: 48px;
+height: 48px;
 `;
 const Text = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;

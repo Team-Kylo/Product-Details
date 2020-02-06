@@ -7,8 +7,10 @@
     "test": "jest --coverage --detectOpenHandles  --forceExit",
     "test:watch": "jest --verbose --watch",
     "test:coverage": "jest --verbose --coverage",
-    "start": "webpack --mode=development --watch",
-    "server": "nodemon server/server.js",
+    "build": "webpack --mode=development",
+    "dev:build": "webpack --mode=development --watch",
+    "dev:start": "nodemon server/server.js",
+    "start": "node server/server.js",
     "seed": "node db/seed.js",
     "test:seed": "node testSeed.js"
   },

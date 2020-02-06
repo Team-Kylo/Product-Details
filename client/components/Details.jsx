@@ -14,8 +14,8 @@ border-bottom: 1px solid #E1E3DF;
 `;
 const Hand = styled.img`
 content: url(${imgHand});
-width: 20px;
-height: 20px;
+width: 30px;
+height: 30px;
 `;
 const VertPadd = styled.div`
 padding: 6px 0px 6px 0px;
@@ -45,7 +45,7 @@ outline: none;
   }
 `;
 
-class Details extends React.Component {
+class DetailsApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -117,11 +117,11 @@ class Details extends React.Component {
     );
   }
 }
-Details.propTypes = {
+DetailsApp.propTypes = {
   itemSpecs: PropTypes.objectOf(PropTypes.string),
 };
-Details.defaultProps = {
+DetailsApp.defaultProps = {
   itemSpecs: {},
 };
 
-export default Details;
+export default DetailsApp;

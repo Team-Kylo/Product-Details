@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import DetailsApp from './components/DetailsApp';
 
 const queryString = document.location.search;
 const id = queryString.slice(1);
 
 
-ReactDOM.render(<App id={id} />, document.getElementById('root'));
+
+ReactDOM.render(<DetailsApp id={id} />, document.getElementById('details'));
