@@ -2,9 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import bell from '../svgs/bell.js';
-
-
+import bell from '../svgs/bell';
 
 const Button = styled.button`
   background: black;
@@ -26,13 +24,13 @@ const DropDown = styled.select`
   }
 `;
 const VertPadd = styled.div`
-padding: 6px 0px 6px 0px;
+  padding: 6px 0px 6px 0px;
 `;
 const MainPadd = styled.div`
-padding-bottom: 12px;
+  padding-bottom: 12px;
 `;
 const EndPadd = styled.div`
-padding: 6px 0px 2px 0px;
+  padding: 6px 0px 2px 0px;
 `;
 const FlexRow = styled.div`
 display: flex;
@@ -68,7 +66,7 @@ const AddToCart = ({ quantityLeft, watchList }) => {
         </div>
       </VertPadd>
       <VertPadd>
-          <Button>Add to cart</Button>
+        <Button>Add to cart</Button>
       </VertPadd>
       <FlexRow>
         <VertPadd>
@@ -78,10 +76,10 @@ const AddToCart = ({ quantityLeft, watchList }) => {
           <div>
             <Text>
               <b>{'Don\'t miss out.'}</b>
-              {`There's only ${quantityLeft} available`}
-            </Text>
-            <Text>
-              {`and ${watchList} other people have this in their cart right now.`}
+              {
+                `There's only ${quantityLeft} available and ${watchList}
+                other people have this in their cart right now.`
+              }
             </Text>
           </div>
         </EndPadd>

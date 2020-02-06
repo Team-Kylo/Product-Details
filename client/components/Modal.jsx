@@ -2,12 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import paypal from '../svgs/paypal.js';
+import paypal from '../svgs/paypal';
 // import mastercard from '../svgs/mastercard.js';
 // import visa from '../svgs/visa.js';
 // import amex from '../svgs/amex.js';
 // import discover from '../svgs/discover.js';
-import gift from '../svgs/gift.js';
+import gift from '../svgs/gift';
 
 
 const ModalDisplay = styled.div`
@@ -22,7 +22,7 @@ display: block;
 const ModalBody = styled.div`
   position:fixed;
   background: white;
-  width: 80%;
+  width: 50%;
   height: auto;
   top:50%;
   left:50%;

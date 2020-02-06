@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import pin from '../svgs/pin.js';
+import pin from '../svgs/pin';
 
 const FlexRow = styled.div`
 display: flex;
