@@ -2,7 +2,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import imgPay from './assets/etsy_pay.png';
+import paypal from '../svgs/paypal.js';
+// import mastercard from '../svgs/mastercard.js';
+// import visa from '../svgs/visa.js';
+// import amex from '../svgs/amex.js';
+// import discover from '../svgs/discover.js';
+import gift from '../svgs/gift.js';
+
 
 const ModalDisplay = styled.div`
 position: fixed;
@@ -53,11 +59,6 @@ color: #222222;
 font-weight: 500;
 margin: 12px 0px 6px 11px;
 `;
-const ImgPay = styled.img`
-content: url(${imgPay});
-width: 500px;
-height: 83px;
-`;
 const GiftCardText = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
 font-size: 12px;
@@ -71,6 +72,14 @@ margin-left: 11px;
 padding: 5px 0px 8px 0px;
 color: #222222;
 `;
+const Cards = styled.div`
+height: 30px;
+width: 45px;
+`;
+const FlexRow = styled.div`
+display: flex;
+flex-direction: row;
+`;
 
 const Modal = ({ sellerName, clickModalX }) => (
   (
@@ -82,7 +91,18 @@ const Modal = ({ sellerName, clickModalX }) => (
         </Header>
         <LastUpdated>Last updated on</LastUpdated>
         <PaymentsText>Payments</PaymentsText>
-        <ImgPay />
+        {/* <ImgPay /> */}
+        <FlexRow>
+          <Cards>
+            {paypal}
+          </Cards>
+          {/* <Cards>
+            {discover}
+          </Cards> */}
+          <Cards>
+            {gift}
+          </Cards>
+        </FlexRow>
         <GiftCardText>Accepts Etsy Gift Cards and Etsy Credits</GiftCardText>
         <EndText>
           Etsy keeps your payment information secure.

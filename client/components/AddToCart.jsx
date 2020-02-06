@@ -2,7 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import imgBell from './assets/etsy_bell.png';
+import bell from '../svgs/bell.js';
+
 
 
 const Button = styled.button`
@@ -14,9 +15,8 @@ const Button = styled.button`
   line-height: 18px;
   padding: 8px 12px 8px 12px;
   border-radius: 3px 3px 3px 3px;
-  width: 282px;
+  width: 100%;
   color: white;
-  width: 200px;
   box-sixing: border-box;
 `;
 
@@ -38,14 +38,9 @@ const FlexRow = styled.div`
 display: flex;
 justify-content: flex-start;
 `;
-const Bell = styled.img`
-content: url(${imgBell});
-width: 48px;
-height: 48px;
-`;
 const Text = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
-font-size: 14px;
+font-size: 13px;
 `;
 
 
@@ -73,13 +68,11 @@ const AddToCart = ({ quantityLeft, watchList }) => {
         </div>
       </VertPadd>
       <VertPadd>
-        <div>
           <Button>Add to cart</Button>
-        </div>
       </VertPadd>
       <FlexRow>
         <VertPadd>
-          <Bell />
+          {bell}
         </VertPadd>
         <EndPadd>
           <div>

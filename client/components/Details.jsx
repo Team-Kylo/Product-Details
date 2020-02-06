@@ -2,7 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import imgHand from './assets/etsy_hand.png';
+import hand from '../svgs/hand.js';
+
 
 const Flexrow = styled.div`
   display: flex;
@@ -11,11 +12,6 @@ const Flexrow = styled.div`
 const Divider = styled.div`
 width: 100%;
 border-bottom: 1px solid #E1E3DF;
-`;
-const Hand = styled.img`
-content: url(${imgHand});
-width: 30px;
-height: 30px;
 `;
 const VertPadd = styled.div`
 padding: 6px 0px 6px 0px;
@@ -100,7 +96,10 @@ class DetailsApp extends React.Component {
         </VertPadd>
         <VertPadd>
           <Flexrow>
-            <Hand />
+            <div>
+              {hand}
+            </div>
+            {/* <Hand /> */}
             <SpecText>
               Handmade
             </SpecText>
