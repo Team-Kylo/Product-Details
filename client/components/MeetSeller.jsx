@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import imgPin from '../../assets/etsy_pin.jpeg';
+import pin from '../svgs/pin';
 
 const FlexRow = styled.div`
 display: flex;
@@ -22,13 +22,6 @@ margin-right: 5px;
 padding-bottom: 6px;
 `;
 
-const Pin = styled.img`
-content: url(${imgPin});
-padding-top: 3px;
-width: 14px;
-height: 15px;
-margin-right: 5px;
-`;
 const MeetSellerFont = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
 font-size: 16px;
@@ -78,6 +71,10 @@ color: #222;
   background-color: rgb(0,0,0, 0.1);
   }
 `;
+const PinDiv = styled.div`
+width: 24px;
+height: 24px;
+`;
 
 const MeetSeller = ({ sellerName, shippingLoc, avatarURL }) => (
   (
@@ -95,7 +92,9 @@ const MeetSeller = ({ sellerName, shippingLoc, avatarURL }) => (
         <SellerFont>
           {sellerName}
           <FlexRow>
-            <Pin />
+            <PinDiv>
+              {pin}
+            </PinDiv>
             <Locfont>
               {`${shippingLoc.city}, ${shippingLoc.country}`}
             </Locfont>

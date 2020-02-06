@@ -2,7 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import imgHand from '../../assets/etsy_hand.jpeg';
+import hand from '../svgs/hand';
+
 
 const Flexrow = styled.div`
   display: flex;
@@ -11,11 +12,6 @@ const Flexrow = styled.div`
 const Divider = styled.div`
 width: 100%;
 border-bottom: 1px solid #E1E3DF;
-`;
-const Hand = styled.img`
-content: url(${imgHand});
-width: 30px;
-height: 30px;
 `;
 const VertPadd = styled.div`
 padding: 6px 0px 6px 0px;
@@ -45,7 +41,7 @@ outline: none;
   }
 `;
 
-class Details extends React.Component {
+class DetailsApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -100,7 +96,10 @@ class Details extends React.Component {
         </VertPadd>
         <VertPadd>
           <Flexrow>
-            <Hand />
+            <div>
+              {hand}
+            </div>
+            {/* <Hand /> */}
             <SpecText>
               Handmade
             </SpecText>
@@ -117,11 +116,11 @@ class Details extends React.Component {
     );
   }
 }
-Details.propTypes = {
+DetailsApp.propTypes = {
   itemSpecs: PropTypes.objectOf(PropTypes.string),
 };
-Details.defaultProps = {
+DetailsApp.defaultProps = {
   itemSpecs: {},
 };
 
-export default Details;
+export default DetailsApp;

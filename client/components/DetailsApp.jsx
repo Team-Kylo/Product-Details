@@ -21,7 +21,7 @@ align-items: flex-end;
 width: 300px;
 `;
 
-class App extends React.Component {
+class DetailsApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,7 +42,6 @@ class App extends React.Component {
 
   getDbData(cb) {
     const { id } = this.props;
-    console.log(id);
     axios.get(`/details/${id}`)
       .then((data) => {
         cb(data.data);
@@ -94,12 +93,12 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+DetailsApp.propTypes = {
   id: PropTypes.string,
 };
-App.defaultProps = {
+DetailsApp.defaultProps = {
   id: '',
 };
 
 
-export default App;
+export default DetailsApp;
