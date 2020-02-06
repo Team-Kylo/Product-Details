@@ -75,10 +75,24 @@ color: #222222;
 const Cards = styled.div`
 height: 30px;
 width: 45px;
+margin-left: 11px;
 `;
 const FlexRow = styled.div`
 display: flex;
 flex-direction: row;
+padding-bottom: 8px;
+`;
+const LockSVG = styled.div`
+width: 18px;
+height: 18px;
+margin-left: 11px;
+margin-bottom: 10px;
+`;
+const SecurePaymentText = styled.div`
+font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+font-size: 12px;
+font-weight: 500;
+padding-left: 5px;
 `;
 
 const Modal = ({ sellerName, clickModalX }) => (
@@ -91,13 +105,20 @@ const Modal = ({ sellerName, clickModalX }) => (
         </Header>
         <LastUpdated>Last updated on</LastUpdated>
         <PaymentsText>Payments</PaymentsText>
-        {/* <ImgPay /> */}
+        <FlexRow>
+        <LockSVG>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17,10V7A5,5,0,0,0,7,7v3H5v8a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V10H17Zm-4,7a1,1,0,0,1-2,0V13a1,1,0,0,1,2,0v4Zm2-7H9V7a2.935,2.935,0,0,1,3-3,2.935,2.935,0,0,1,3,3v3Z"></path></svg>
+        </LockSVG>
+        <SecurePaymentText>
+          Secure options
+        </SecurePaymentText>
+        </FlexRow>
         <FlexRow>
           <Cards>
             {paypal}
           </Cards>
           {/* <Cards>
-            {discover}
+            {mastercard}
           </Cards> */}
           <Cards>
             {gift}
