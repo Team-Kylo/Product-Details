@@ -65,6 +65,7 @@ font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid 
 font-size: 12px;
 color: #595959;
 margin-left: 11px;
+margin-top: 10px;
 `;
 const EndText = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
