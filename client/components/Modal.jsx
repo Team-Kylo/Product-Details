@@ -2,12 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import paypal from '../svgs/paypal';
-// import mastercard from '../svgs/mastercard.js';
-// import visa from '../svgs/visa.js';
-// import amex from '../svgs/amex.js';
-// import discover from '../svgs/discover.js';
-import gift from '../svgs/gift';
+import paypal from '../svgs/paypal.svg';
+import visa from '../svgs/visa.svg';
+import amex from '../svgs/amex.svg';
+import discover from '../svgs/discover.svg';
+import gift from '../svgs/gift.svg';
+import masterCardSvg from '../svgs/mc.svg';
 
 
 const ModalDisplay = styled.div`
@@ -115,13 +115,22 @@ const Modal = ({ sellerName, clickModalX }) => (
         </FlexRow>
         <FlexRow>
           <Cards>
-            {paypal}
+            <img src={paypal} alt="whatever" />
           </Cards>
-          {/* <Cards>
-            {mastercard}
-          </Cards> */}
           <Cards>
-            {gift}
+            <img src={masterCardSvg} alt="watever" />
+          </Cards>
+          <Cards>
+            <img src={visa} alt="whatever" />
+          </Cards>
+          <Cards>
+            <img src={amex} alt="whatever" />
+          </Cards>
+          <Cards>
+            <img src={discover} alt="whatever" />
+          </Cards>
+          <Cards>
+            <img src={gift} alt="whatever" />
           </Cards>
         </FlexRow>
         <GiftCardText>Accepts Etsy Gift Cards and Etsy Credits</GiftCardText>

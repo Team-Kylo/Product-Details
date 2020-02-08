@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import pin from '../svgs/pin';
+import pin from '../svgs/pin.svg';
 
 const FlexRow = styled.div`
 display: flex;
@@ -93,7 +93,7 @@ const MeetSeller = ({ sellerName, shippingLoc, avatarURL }) => (
           {sellerName}
           <FlexRow>
             <PinDiv>
-              {pin}
+              <img src={pin} alt="whatever" />
             </PinDiv>
             <Locfont>
               {`${shippingLoc.city}, ${shippingLoc.country}`}

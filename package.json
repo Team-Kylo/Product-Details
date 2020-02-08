@@ -55,6 +55,7 @@
     "eslint-plugin-react": "^7.18.0",
     "file-loader": "^5.0.2",
     "jest": "^25.1.0",
+    "react-svg-loader": "^3.0.3",
     "supertest": "^4.0.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"

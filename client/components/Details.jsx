@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import hand from '../svgs/hand';
+import hand from '../svgs/hand.svg';
 
 
 const Flexrow = styled.div`
@@ -97,7 +97,7 @@ class DetailsApp extends React.Component {
         <VertPadd>
           <Flexrow>
             <div>
-              {hand}
+              <img src={hand} alt="whatever" />
             </div>
             {/* <Hand /> */}
             <SpecText>
