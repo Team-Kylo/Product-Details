@@ -8,6 +8,7 @@ import amex from '../svgs/amex.svg';
 import discover from '../svgs/discover.svg';
 import gift from '../svgs/gift.svg';
 import masterCardSvg from '../svgs/mc.svg';
+import lock from '../svgs/lock.svg';
 
 
 const ModalDisplay = styled.div`
@@ -106,12 +107,12 @@ const Modal = ({ sellerName, clickModalX }) => (
         <LastUpdated>Last updated on</LastUpdated>
         <PaymentsText>Payments</PaymentsText>
         <FlexRow>
-        <LockSVG>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17,10V7A5,5,0,0,0,7,7v3H5v8a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V10H17Zm-4,7a1,1,0,0,1-2,0V13a1,1,0,0,1,2,0v4Zm2-7H9V7a2.935,2.935,0,0,1,3-3,2.935,2.935,0,0,1,3,3v3Z"></path></svg>
-        </LockSVG>
-        <SecurePaymentText>
-          Secure options
-        </SecurePaymentText>
+          <LockSVG>
+            <img src={lock} alt="whatever" />
+          </LockSVG>
+          <SecurePaymentText>
+            Secure options
+          </SecurePaymentText>
         </FlexRow>
         <FlexRow>
           <Cards>
