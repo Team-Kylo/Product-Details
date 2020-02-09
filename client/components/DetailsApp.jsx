@@ -32,7 +32,6 @@ class DetailsApp extends React.Component {
 
   componentDidMount() {
     this.getDbData((dbData) => {
-      console.log('db data', dbData);
       this.setState({
         data: dbData,
         mount: true,
