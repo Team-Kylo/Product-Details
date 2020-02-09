@@ -1,14 +1,9 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import paypal from '../svgs/paypal.svg';
-import visa from '../svgs/visa.svg';
-import amex from '../svgs/amex.svg';
-import discover from '../svgs/discover.svg';
-import gift from '../svgs/gift.svg';
-import masterCardSvg from '../svgs/mc.svg';
-import lock from '../svgs/lock.svg';
+import paypal from '../svgs/paypal';
+import gift from '../svgs/gift';
+import lock from '../svgs/lock';
 
 
 const ModalDisplay = styled.div`
@@ -65,7 +60,6 @@ font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid 
 font-size: 12px;
 color: #595959;
 margin-left: 11px;
-margin-top: 10px;
 `;
 const EndText = styled.div`
 font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -109,7 +103,7 @@ const Modal = ({ sellerName, clickModalX }) => (
         <PaymentsText>Payments</PaymentsText>
         <FlexRow>
           <LockSVG>
-            <img src={lock} alt="whatever" />
+            {lock}
           </LockSVG>
           <SecurePaymentText>
             Secure options
@@ -117,22 +111,10 @@ const Modal = ({ sellerName, clickModalX }) => (
         </FlexRow>
         <FlexRow>
           <Cards>
-            <img src={paypal} alt="whatever" />
+            {paypal}
           </Cards>
           <Cards>
-            <img src={masterCardSvg} alt="watever" />
-          </Cards>
-          <Cards>
-            <img src={visa} alt="whatever" />
-          </Cards>
-          <Cards>
-            <img src={amex} alt="whatever" />
-          </Cards>
-          <Cards>
-            <img src={discover} alt="whatever" />
-          </Cards>
-          <Cards>
-            <img src={gift} alt="whatever" />
+            {gift}
           </Cards>
         </FlexRow>
         <GiftCardText>Accepts Etsy Gift Cards and Etsy Credits</GiftCardText>
