@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import bell from '../svgs/bell.svg';
+import bell from '../svgs/bell';
 
 const Button = styled.button`
   background: black;
@@ -70,7 +70,7 @@ const AddToCart = ({ quantityLeft, watchList }) => {
       </VertPadd>
       <FlexRow>
         <VertPadd>
-          <img src={bell} alt="wahtever" />
+          {bell}
         </VertPadd>
         <EndPadd>
           <div>
