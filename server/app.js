@@ -1,11 +1,19 @@
 const express = require('express');
+const expressStaticGzip = require('express-static-gzip');
 
 const app = express();
 const db = require('../db');
 
-
 app.use(express.json());
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
+
+app.use('/', expressStaticGzip('./public', {
+  enableBrotli: true,
+  orderPreference: ['br', 'gz'],
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  },
+}));
 
 
 app.get('/details/:id', (req, res) => {
