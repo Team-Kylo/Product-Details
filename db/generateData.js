@@ -3,6 +3,10 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable consistent-return */
 /* eslint-disable max-len */
+const fastcsv = require('fast-csv');
+const fs = require('fs');
+
+const ws = fs.createWriteStream('./out.csv');
 const faker = require('faker');
 
 const fakeData = [];
@@ -31,7 +35,6 @@ const generate = () => {
       }
       return countryList;
     };
-
     // faker.lorem.sentences(),
     const doc = {
       id: i,
@@ -59,9 +62,13 @@ const generate = () => {
       avatar: `https://picsum.photos/id/${150 + i}/75/75`,
       countryList: countryArray(),
     };
+    ws.write(`${doc.id},${doc.sellerName},${doc.itemPrice}\n`);
     fakeData.push(doc);
   }
   return fakeData;
 };
+
+generate();
+
 
 module.exports = generate;
